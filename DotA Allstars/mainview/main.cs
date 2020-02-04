@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Net;
 using System.IO;
 using Newtonsoft.Json.Linq;
+using System.Diagnostics;
 
 namespace DotA_Allstars
 {
@@ -57,7 +58,20 @@ namespace DotA_Allstars
             int index = this.listRooms.IndexFromPoint(e.Location);
             if (index != ListBox.NoMatches)
             {
-                MessageBox.Show(rooms[listRooms.Items[index].ToString()]);
+                ProcessStartInfo processInfo = new ProcessStartInfo();
+                processInfo.WindowStyle = ProcessWindowStyle.Hidden;
+                if (!File.Exists(@"C:\Program Files (x86)\ZeroTier\One\zerotier-cli.bat"))
+                {
+                    processInfo.FileName = @"C:\Program Files\ZeroTier\One\zerotier-cli.bat";
+                    processInfo.Arguments = "join " + rooms[listRooms.Items[index].ToString()];
+                    Process.Start(processInfo);
+                }
+                else
+                {
+                    processInfo.FileName = @"C:\Program Files (x86)\ZeroTier\One\zerotier-cli.bat";
+                    processInfo.Arguments = "join " + rooms[listRooms.Items[index].ToString()];
+                    Process.Start(processInfo);
+                }
             }
         }
     }

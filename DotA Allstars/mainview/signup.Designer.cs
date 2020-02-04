@@ -47,11 +47,6 @@
             Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties48 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
             this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.haveUser = new System.Windows.Forms.LinkLabel();
-            this.signupBt = new Bunifu.Framework.UI.BunifuThinButton2();
-            this.capcha = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
-            this.repasswd = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
-            this.passwd = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
-            this.usname = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
             this.t1 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.t2 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.t3 = new Bunifu.Framework.UI.BunifuCustomLabel();
@@ -60,6 +55,19 @@
             this.c1 = new System.Windows.Forms.Label();
             this.c2 = new System.Windows.Forms.Label();
             this.sttR = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.Pbot = new System.Windows.Forms.Panel();
+            this.pTop = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.signupBt = new Bunifu.Framework.UI.BunifuThinButton2();
+            this.capcha = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
+            this.repasswd = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
+            this.passwd = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
+            this.usname = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
+            this.Pright = new System.Windows.Forms.Panel();
+            this.clBt = new Bunifu.UI.WinForms.BunifuPictureBox();
+            this.mmmBt = new Bunifu.UI.WinForms.BunifuPictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.clBt)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mmmBt)).BeginInit();
             this.SuspendLayout();
             // 
             // bunifuCustomLabel1
@@ -67,7 +75,7 @@
             this.bunifuCustomLabel1.AutoSize = true;
             this.bunifuCustomLabel1.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuCustomLabel1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.bunifuCustomLabel1.Location = new System.Drawing.Point(12, 15);
+            this.bunifuCustomLabel1.Location = new System.Drawing.Point(17, 22);
             this.bunifuCustomLabel1.Name = "bunifuCustomLabel1";
             this.bunifuCustomLabel1.Size = new System.Drawing.Size(172, 20);
             this.bunifuCustomLabel1.TabIndex = 4;
@@ -78,13 +86,135 @@
             this.haveUser.AutoSize = true;
             this.haveUser.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.haveUser.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.haveUser.Location = new System.Drawing.Point(131, 277);
+            this.haveUser.Location = new System.Drawing.Point(131, 282);
             this.haveUser.Name = "haveUser";
             this.haveUser.Size = new System.Drawing.Size(249, 23);
             this.haveUser.TabIndex = 6;
             this.haveUser.TabStop = true;
             this.haveUser.Text = "Đùa thôi, có tài khoản rồi. haha.";
             this.haveUser.Click += new System.EventHandler(this.LinkLabel1_Click);
+            // 
+            // t1
+            // 
+            this.t1.AutoSize = true;
+            this.t1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.t1.ForeColor = System.Drawing.Color.White;
+            this.t1.Location = new System.Drawing.Point(256, 52);
+            this.t1.Name = "t1";
+            this.t1.Size = new System.Drawing.Size(212, 16);
+            this.t1.TabIndex = 7;
+            this.t1.Text = "Tên tài khoản từ 6 đến 10 kí tự";
+            // 
+            // t2
+            // 
+            this.t2.AutoSize = true;
+            this.t2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.t2.ForeColor = System.Drawing.Color.White;
+            this.t2.Location = new System.Drawing.Point(256, 94);
+            this.t2.Name = "t2";
+            this.t2.Size = new System.Drawing.Size(180, 16);
+            this.t2.TabIndex = 8;
+            this.t2.Text = "Mật khẩu từ 6 đến 20 kí tự";
+            // 
+            // t3
+            // 
+            this.t3.AutoSize = true;
+            this.t3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.t3.ForeColor = System.Drawing.Color.White;
+            this.t3.Location = new System.Drawing.Point(256, 136);
+            this.t3.Name = "t3";
+            this.t3.Size = new System.Drawing.Size(190, 16);
+            this.t3.TabIndex = 9;
+            this.t3.Text = "Nhớ nhập đúng 2 mật khẩu";
+            // 
+            // t4
+            // 
+            this.t4.AutoSize = true;
+            this.t4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.t4.ForeColor = System.Drawing.Color.White;
+            this.t4.Location = new System.Drawing.Point(265, 192);
+            this.t4.Name = "t4";
+            this.t4.Size = new System.Drawing.Size(176, 16);
+            this.t4.TabIndex = 10;
+            this.t4.Text = "Kiểm tra trình toán học tí.";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Coral;
+            this.label1.Location = new System.Drawing.Point(77, 186);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(22, 24);
+            this.label1.TabIndex = 11;
+            this.label1.Text = "+";
+            // 
+            // c1
+            // 
+            this.c1.AutoSize = true;
+            this.c1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.c1.ForeColor = System.Drawing.Color.Coral;
+            this.c1.Location = new System.Drawing.Point(46, 186);
+            this.c1.Name = "c1";
+            this.c1.Size = new System.Drawing.Size(0, 25);
+            this.c1.TabIndex = 12;
+            // 
+            // c2
+            // 
+            this.c2.AutoSize = true;
+            this.c2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.c2.ForeColor = System.Drawing.Color.Coral;
+            this.c2.Location = new System.Drawing.Point(104, 186);
+            this.c2.Name = "c2";
+            this.c2.Size = new System.Drawing.Size(0, 25);
+            this.c2.TabIndex = 13;
+            // 
+            // sttR
+            // 
+            this.sttR.AutoSize = true;
+            this.sttR.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sttR.ForeColor = System.Drawing.Color.Red;
+            this.sttR.Location = new System.Drawing.Point(195, 22);
+            this.sttR.Name = "sttR";
+            this.sttR.Size = new System.Drawing.Size(0, 19);
+            this.sttR.TabIndex = 14;
+            // 
+            // Pbot
+            // 
+            this.Pbot.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Pbot.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Pbot.BackgroundImage")));
+            this.Pbot.Location = new System.Drawing.Point(14, 308);
+            this.Pbot.Name = "Pbot";
+            this.Pbot.Size = new System.Drawing.Size(501, 20);
+            this.Pbot.TabIndex = 20;
+            // 
+            // pTop
+            // 
+            this.pTop.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pTop.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pTop.BackgroundImage")));
+            this.pTop.Location = new System.Drawing.Point(13, -3);
+            this.pTop.Name = "pTop";
+            this.pTop.Size = new System.Drawing.Size(502, 20);
+            this.pTop.TabIndex = 19;
+            this.pTop.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PTop_MouseDown);
+            this.pTop.MouseMove += new System.Windows.Forms.MouseEventHandler(this.PTop_MouseMove);
+            this.pTop.MouseUp += new System.Windows.Forms.MouseEventHandler(this.PTop_MouseUp);
+            // 
+            // panel1
+            // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(14, 328);
+            this.panel1.TabIndex = 18;
             // 
             // signupBt
             // 
@@ -93,7 +223,7 @@
             this.signupBt.ActiveFillColor = System.Drawing.Color.SeaGreen;
             this.signupBt.ActiveForecolor = System.Drawing.Color.White;
             this.signupBt.ActiveLineColor = System.Drawing.Color.SeaGreen;
-            this.signupBt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.signupBt.BackColor = System.Drawing.Color.Black;
             this.signupBt.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("signupBt.BackgroundImage")));
             this.signupBt.ButtonText = "Đăng kí";
             this.signupBt.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -104,8 +234,8 @@
             this.signupBt.IdleFillColor = System.Drawing.Color.White;
             this.signupBt.IdleForecolor = System.Drawing.Color.SeaGreen;
             this.signupBt.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.signupBt.Location = new System.Drawing.Point(62, 214);
-            this.signupBt.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.signupBt.Location = new System.Drawing.Point(62, 219);
+            this.signupBt.Margin = new System.Windows.Forms.Padding(8);
             this.signupBt.Name = "signupBt";
             this.signupBt.Size = new System.Drawing.Size(406, 55);
             this.signupBt.TabIndex = 5;
@@ -139,7 +269,7 @@
             this.capcha.IconRight = null;
             this.capcha.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
             this.capcha.Lines = new string[0];
-            this.capcha.Location = new System.Drawing.Point(135, 177);
+            this.capcha.Location = new System.Drawing.Point(135, 182);
             this.capcha.MaxLength = 32767;
             this.capcha.MinimumSize = new System.Drawing.Size(100, 35);
             this.capcha.Modified = false;
@@ -212,8 +342,8 @@
             this.repasswd.IconRight = null;
             this.repasswd.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
             this.repasswd.Lines = new string[0];
-            this.repasswd.Location = new System.Drawing.Point(31, 121);
-            this.repasswd.MaxLength = 20;
+            this.repasswd.Location = new System.Drawing.Point(31, 126);
+            this.repasswd.MaxLength = 32767;
             this.repasswd.MinimumSize = new System.Drawing.Size(100, 35);
             this.repasswd.Modified = false;
             this.repasswd.Multiline = false;
@@ -285,8 +415,8 @@
             this.passwd.IconRight = null;
             this.passwd.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
             this.passwd.Lines = new string[0];
-            this.passwd.Location = new System.Drawing.Point(31, 80);
-            this.passwd.MaxLength = 20;
+            this.passwd.Location = new System.Drawing.Point(31, 85);
+            this.passwd.MaxLength = 32767;
             this.passwd.MinimumSize = new System.Drawing.Size(100, 35);
             this.passwd.Modified = false;
             this.passwd.Multiline = false;
@@ -358,8 +488,8 @@
             this.usname.IconRight = null;
             this.usname.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
             this.usname.Lines = new string[0];
-            this.usname.Location = new System.Drawing.Point(31, 38);
-            this.usname.MaxLength = 15;
+            this.usname.Location = new System.Drawing.Point(31, 43);
+            this.usname.MaxLength = 32767;
             this.usname.MinimumSize = new System.Drawing.Size(100, 35);
             this.usname.Modified = false;
             this.usname.Multiline = false;
@@ -404,94 +534,64 @@
             this.usname.UseSystemPasswordChar = false;
             this.usname.WordWrap = true;
             // 
-            // t1
+            // Pright
             // 
-            this.t1.AutoSize = true;
-            this.t1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.t1.ForeColor = System.Drawing.Color.White;
-            this.t1.Location = new System.Drawing.Point(256, 47);
-            this.t1.Name = "t1";
-            this.t1.Size = new System.Drawing.Size(212, 16);
-            this.t1.TabIndex = 7;
-            this.t1.Text = "Tên tài khoản từ 6 đến 10 kí tự";
+            this.Pright.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Pright.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Pright.BackgroundImage")));
+            this.Pright.Location = new System.Drawing.Point(513, 1);
+            this.Pright.Name = "Pright";
+            this.Pright.Size = new System.Drawing.Size(14, 327);
+            this.Pright.TabIndex = 17;
             // 
-            // t2
+            // clBt
             // 
-            this.t2.AutoSize = true;
-            this.t2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.t2.ForeColor = System.Drawing.Color.White;
-            this.t2.Location = new System.Drawing.Point(256, 89);
-            this.t2.Name = "t2";
-            this.t2.Size = new System.Drawing.Size(180, 16);
-            this.t2.TabIndex = 8;
-            this.t2.Text = "Mật khẩu từ 6 đến 20 kí tự";
+            this.clBt.AllowFocused = false;
+            this.clBt.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.clBt.BackColor = System.Drawing.Color.Transparent;
+            this.clBt.BorderRadius = 100;
+            this.clBt.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.clBt.Image = global::DotA_Allstars.Properties.Resources.close_window_96px;
+            this.clBt.IsCircle = false;
+            this.clBt.Location = new System.Drawing.Point(493, 1);
+            this.clBt.Name = "clBt";
+            this.clBt.Size = new System.Drawing.Size(31, 31);
+            this.clBt.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.clBt.TabIndex = 0;
+            this.clBt.TabStop = false;
+            this.clBt.Type = Bunifu.UI.WinForms.BunifuPictureBox.Types.Custom;
+            this.clBt.Click += new System.EventHandler(this.ClBt_Click);
             // 
-            // t3
+            // mmmBt
             // 
-            this.t3.AutoSize = true;
-            this.t3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.t3.ForeColor = System.Drawing.Color.White;
-            this.t3.Location = new System.Drawing.Point(256, 131);
-            this.t3.Name = "t3";
-            this.t3.Size = new System.Drawing.Size(190, 16);
-            this.t3.TabIndex = 9;
-            this.t3.Text = "Nhớ nhập đúng 2 mật khẩu";
-            // 
-            // t4
-            // 
-            this.t4.AutoSize = true;
-            this.t4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.t4.ForeColor = System.Drawing.Color.White;
-            this.t4.Location = new System.Drawing.Point(265, 187);
-            this.t4.Name = "t4";
-            this.t4.Size = new System.Drawing.Size(176, 16);
-            this.t4.TabIndex = 10;
-            this.t4.Text = "Kiểm tra trình toán học tí.";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(77, 181);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(22, 24);
-            this.label1.TabIndex = 11;
-            this.label1.Text = "+";
-            // 
-            // c1
-            // 
-            this.c1.AutoSize = true;
-            this.c1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.c1.Location = new System.Drawing.Point(46, 181);
-            this.c1.Name = "c1";
-            this.c1.Size = new System.Drawing.Size(0, 25);
-            this.c1.TabIndex = 12;
-            // 
-            // c2
-            // 
-            this.c2.AutoSize = true;
-            this.c2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.c2.Location = new System.Drawing.Point(104, 181);
-            this.c2.Name = "c2";
-            this.c2.Size = new System.Drawing.Size(0, 25);
-            this.c2.TabIndex = 13;
-            // 
-            // sttR
-            // 
-            this.sttR.AutoSize = true;
-            this.sttR.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sttR.ForeColor = System.Drawing.Color.Red;
-            this.sttR.Location = new System.Drawing.Point(195, 12);
-            this.sttR.Name = "sttR";
-            this.sttR.Size = new System.Drawing.Size(0, 19);
-            this.sttR.TabIndex = 14;
+            this.mmmBt.AllowFocused = false;
+            this.mmmBt.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.mmmBt.BackColor = System.Drawing.Color.Transparent;
+            this.mmmBt.BorderRadius = 100;
+            this.mmmBt.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.mmmBt.Image = global::DotA_Allstars.Properties.Resources.minimize_window_96px;
+            this.mmmBt.IsCircle = false;
+            this.mmmBt.Location = new System.Drawing.Point(460, 1);
+            this.mmmBt.Name = "mmmBt";
+            this.mmmBt.Size = new System.Drawing.Size(31, 31);
+            this.mmmBt.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.mmmBt.TabIndex = 21;
+            this.mmmBt.TabStop = false;
+            this.mmmBt.Type = Bunifu.UI.WinForms.BunifuPictureBox.Types.Custom;
+            this.mmmBt.Click += new System.EventHandler(this.MmmBt_Click);
             // 
             // signup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ClientSize = new System.Drawing.Size(527, 309);
+            this.BackColor = System.Drawing.Color.Black;
+            this.ClientSize = new System.Drawing.Size(527, 325);
+            this.Controls.Add(this.mmmBt);
+            this.Controls.Add(this.clBt);
+            this.Controls.Add(this.Pbot);
+            this.Controls.Add(this.pTop);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.sttR);
             this.Controls.Add(this.c2);
             this.Controls.Add(this.c1);
@@ -507,13 +607,16 @@
             this.Controls.Add(this.repasswd);
             this.Controls.Add(this.passwd);
             this.Controls.Add(this.usname);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Controls.Add(this.Pright);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "signup";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MobaZ - Đăng kí";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Signup_FormClosed);
+            ((System.ComponentModel.ISupportInitialize)(this.clBt)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mmmBt)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -536,5 +639,11 @@
         private System.Windows.Forms.Label c1;
         private System.Windows.Forms.Label c2;
         private Bunifu.Framework.UI.BunifuCustomLabel sttR;
+        private System.Windows.Forms.Panel Pright;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pTop;
+        private System.Windows.Forms.Panel Pbot;
+        private Bunifu.UI.WinForms.BunifuPictureBox clBt;
+        private Bunifu.UI.WinForms.BunifuPictureBox mmmBt;
     }
 }

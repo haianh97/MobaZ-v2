@@ -18,6 +18,8 @@ namespace DotA_Allstars
 {
     public partial class login : Form
     {
+        public static bool drag = false;
+        public static Point start_point = new Point(0, 0);
         public login()
         {
             InitializeComponent();
@@ -175,6 +177,36 @@ namespace DotA_Allstars
         private void NewFormReg(object obj)
         {
             Application.Run(new signup());
+        }
+
+        private void PTop_MouseDown(object sender, MouseEventArgs e)
+        {
+            drag = true;
+            start_point = new Point(e.X, e.Y);
+        }
+
+        private void PTop_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (drag)
+            {
+                Point p = PointToScreen(e.Location);
+                this.Location = new Point(p.X - start_point.X, p.Y - start_point.Y);
+            }
+        }
+
+        private void PTop_MouseUp(object sender, MouseEventArgs e)
+        {
+            drag = false;
+        }
+
+        private void ClBt_Click(object sender, EventArgs e)
+        {
+            Environment.Exit(1);
+        }
+
+        private void MmmBt_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
         }
     }
 }

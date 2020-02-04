@@ -36,6 +36,10 @@
     <ApplicationIcon>icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Bunifu.Core, Version=1.11.5.1, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9" />
+    <Reference Include="Bunifu.UI.WinForms.BunifuPictureBox">
+      <HintPath>D:\1 Random Number\Bunifu UI WinForms 1.11.5.1\Bunifu.UI.WinForms.BunifuPictureBox.dll</HintPath>
+    </Reference>
     <Reference Include="Bunifu.UI.WinForms.BunifuTextbox">
       <HintPath>D:\1 Random Number\Bunifu UI WinForms 1.11.5.1\Bunifu.UI.WinForms.BunifuTextbox.dll</HintPath>
     </Reference>
@@ -76,6 +80,12 @@
     <Compile Include="mainview\signup.Designer.cs">
       <DependentUpon>signup.cs</DependentUpon>
     </Compile>
+    <Compile Include="mainview\statusW.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="mainview\statusW.Designer.cs">
+      <DependentUpon>statusW.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="mainview\login.resx">
@@ -86,6 +96,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="mainview\signup.resx">
       <DependentUpon>signup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="mainview\statusW.resx">
+      <DependentUpon>statusW.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -112,6 +125,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon.ico" />
+    <None Include="Resources\download_96px.png" />
+    <None Include="Resources\color_palette_96px.png" />
+    <None Include="Resources\minimize_window_96px.png" />
+    <None Include="Resources\maximize_window_96px.png" />
+    <None Include="Resources\close_window_96px.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Image1.bmp" />

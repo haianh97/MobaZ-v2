@@ -99,5 +99,35 @@ namespace DotA_Allstars.mainview
                 });
             }
         }
+
+        private void PTop_MouseDown(object sender, MouseEventArgs e)
+        {
+            login.drag = true;
+            login.start_point = new Point(e.X, e.Y);
+        }
+
+        private void PTop_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (login.drag)
+            {
+                Point p = PointToScreen(e.Location);
+                this.Location = new Point(p.X - login.start_point.X, p.Y - login.start_point.Y);
+            }
+        }
+
+        private void PTop_MouseUp(object sender, MouseEventArgs e)
+        {
+            login.drag = false;
+        }
+
+        private void ClBt_Click(object sender, EventArgs e)
+        {
+            Environment.Exit(1);
+        }
+
+        private void MmmBt_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
     }
 }
