@@ -61,6 +61,15 @@ namespace DotA_Allstars.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string auth {
+            get {
+                return ResourceManager.GetString("auth", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap close_window_96px {
@@ -117,6 +126,15 @@ namespace DotA_Allstars.Properties {
             get {
                 object obj = ResourceManager.GetObject("minimize_window_96px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string server_chat {
+            get {
+                return ResourceManager.GetString("server_chat", resourceCulture);
             }
         }
     }
