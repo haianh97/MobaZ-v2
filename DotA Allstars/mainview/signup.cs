@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Threading;
 using System.Net.Http;
+using System.Text.RegularExpressions;
 
 namespace DotA_Allstars.mainview
 {
@@ -24,6 +25,8 @@ namespace DotA_Allstars.mainview
             b = rb;
             c1.Text = a.ToString();
             c2.Text = b.ToString();
+            this.SuspendLayout();
+            this.ResumeLayout(true);
         }
         public int a;
         public int b;
@@ -128,6 +131,18 @@ namespace DotA_Allstars.mainview
         private void MmmBt_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void Usname_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9a-zA-Z.^-^_-`\b-]+");
+            e.Handled = regex.IsMatch(e.KeyChar.ToString());
+        }
+
+        private void Capcha_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9\b]+");
+            e.Handled = regex.IsMatch(e.KeyChar.ToString());
         }
     }
 }

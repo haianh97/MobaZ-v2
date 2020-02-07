@@ -13,6 +13,8 @@ using DotA_Allstars.mainview;
 using System.Threading;
 using System.Xml;
 using System.IO;
+using System.Text.RegularExpressions;
+using AutoUpdaterDotNET;
 
 namespace DotA_Allstars
 {
@@ -20,13 +22,17 @@ namespace DotA_Allstars
     {
         public static bool drag = false;
         public static Point start_point = new Point(0, 0);
+       
         public login()
         {
             InitializeComponent();
+            this.SuspendLayout();
+            this.ResumeLayout(true);
             string procName = Process.GetCurrentProcess().ProcessName;       
             Process[] processes = Process.GetProcessesByName(procName);
-            
-
+            AutoUpdater.Mandatory = true;
+            AutoUpdater.UpdateMode = Mode.Forced;
+            AutoUpdater.Start("http://103.90.225.234/NDPatchUpdate/ud.xml");
             if (processes.Length > 1)
             {
                 if (MessageBox.Show(procName + " already running", "MobaZ", MessageBoxButtons.OK, MessageBoxIcon.Warning) == DialogResult.OK)
@@ -87,11 +93,14 @@ namespace DotA_Allstars
                     paswd.Text = password;
                 }
             }
+            LeaveOldNetWorks();
         }
 
         public static readonly HttpClient connect = new HttpClient();
         public static string username;
         public static string password;
+        public static string path;
+        public static string tagetW;
         OpenFileDialog opf = new OpenFileDialog();
         XmlDocument paket = new XmlDocument();
 
@@ -129,8 +138,8 @@ namespace DotA_Allstars
                             XmlNode pw = paket.SelectSingleNode("settings/pw");
                             XmlNode save = paket.SelectSingleNode("settings/war3");
                             XmlNode taget = paket.SelectSingleNode("settings/taget");
-                           // pathWar3.Text = save.Attributes[0].Value;
-                           // Taget.Text = taget.Attributes[0].Value;
+                            path = save.Attributes[0].Value;
+                            tagetW = taget.Attributes[0].Value;
                             if (remember.Checked == true)
                             {
                                 rem.Attributes[0].Value = "1";
@@ -207,6 +216,39 @@ namespace DotA_Allstars
         private void MmmBt_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
+        }
+        
+        private void Usname_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9a-zA-Z.^-^_-`\b-]+");
+            e.Handled = regex.IsMatch(e.KeyChar.ToString());
+        }
+
+        public void LeaveOldNetWorks()
+        {
+            foreach (var files in Directory.GetFiles(@"C:\ProgramData\ZeroTier\One\networks.d\"))
+            {
+                FileInfo info = new FileInfo(files);
+                var fileName = Path.GetFileNameWithoutExtension(info.FullName);
+                ProcessStartInfo processInfo = new ProcessStartInfo();
+                processInfo.WindowStyle = ProcessWindowStyle.Hidden;
+                if (!File.Exists(@"C:\Program Files (x86)\ZeroTier\One\zerotier-cli.bat"))
+                {
+                    processInfo.FileName = @"C:\Program Files\ZeroTier\One\zerotier-cli.bat";
+                    processInfo.Arguments = "leave "+fileName;
+                    Process.Start(processInfo);
+                }
+                else
+                {
+                    processInfo.FileName = @"C:\Program Files (x86)\ZeroTier\One\zerotier-cli.bat";
+                    processInfo.Arguments = "leave " + fileName;
+                    Process.Start(processInfo);
+                }
+            }
+            foreach (var process in Process.GetProcessesByName("war3"))
+            {
+                process.Kill();
+            }
         }
     }
 }

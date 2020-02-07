@@ -29,23 +29,24 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(statusW));
-            this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.connectstt = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.pTop = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.Pbot = new System.Windows.Forms.Panel();
             this.Pright = new System.Windows.Forms.Panel();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.SuspendLayout();
             // 
-            // bunifuCustomLabel1
+            // connectstt
             // 
-            this.bunifuCustomLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuCustomLabel1.ForeColor = System.Drawing.Color.Coral;
-            this.bunifuCustomLabel1.Location = new System.Drawing.Point(-1, 71);
-            this.bunifuCustomLabel1.Name = "bunifuCustomLabel1";
-            this.bunifuCustomLabel1.Size = new System.Drawing.Size(265, 35);
-            this.bunifuCustomLabel1.TabIndex = 0;
-            this.bunifuCustomLabel1.Text = "Kết nối vào mạng...";
-            this.bunifuCustomLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.connectstt.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.connectstt.ForeColor = System.Drawing.Color.Coral;
+            this.connectstt.Location = new System.Drawing.Point(-1, 71);
+            this.connectstt.Name = "connectstt";
+            this.connectstt.Size = new System.Drawing.Size(265, 35);
+            this.connectstt.TabIndex = 0;
+            this.connectstt.Text = "Kết nối vào mạng...";
+            this.connectstt.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pTop
             // 
@@ -55,7 +56,7 @@
             this.pTop.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pTop.BackgroundImage")));
             this.pTop.Location = new System.Drawing.Point(12, -2);
             this.pTop.Name = "pTop";
-            this.pTop.Size = new System.Drawing.Size(235, 20);
+            this.pTop.Size = new System.Drawing.Size(231, 16);
             this.pTop.TabIndex = 16;
             // 
             // panel1
@@ -67,7 +68,7 @@
             this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
             this.panel1.Location = new System.Drawing.Point(-1, -2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(14, 182);
+            this.panel1.Size = new System.Drawing.Size(10, 178);
             this.panel1.TabIndex = 17;
             // 
             // Pbot
@@ -78,7 +79,7 @@
             this.Pbot.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Pbot.BackgroundImage")));
             this.Pbot.Location = new System.Drawing.Point(13, 160);
             this.Pbot.Name = "Pbot";
-            this.Pbot.Size = new System.Drawing.Size(234, 20);
+            this.Pbot.Size = new System.Drawing.Size(230, 16);
             this.Pbot.TabIndex = 18;
             // 
             // Pright
@@ -89,36 +90,44 @@
             this.Pright.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Pright.BackgroundImage")));
             this.Pright.Location = new System.Drawing.Point(245, -2);
             this.Pright.Name = "Pright";
-            this.Pright.Size = new System.Drawing.Size(14, 182);
+            this.Pright.Size = new System.Drawing.Size(10, 178);
             this.Pright.TabIndex = 19;
+            // 
+            // backgroundWorker1
+            // 
+            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.BackgroundWorker1_DoWork);
             // 
             // statusW
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(259, 177);
+            this.ClientSize = new System.Drawing.Size(255, 173);
             this.ControlBox = false;
             this.Controls.Add(this.Pright);
             this.Controls.Add(this.Pbot);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pTop);
-            this.Controls.Add(this.bunifuCustomLabel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Controls.Add(this.connectstt);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "statusW";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Load += new System.EventHandler(this.StatusW_Load);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel1;
+        private Bunifu.Framework.UI.BunifuCustomLabel connectstt;
         private System.Windows.Forms.Panel pTop;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel Pbot;
         private System.Windows.Forms.Panel Pright;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }
