@@ -64,7 +64,7 @@
             this.remember.Checked = false;
             this.remember.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(205)))), ((int)(((byte)(117)))));
             this.remember.ForeColor = System.Drawing.Color.White;
-            this.remember.Location = new System.Drawing.Point(238, 292);
+            this.remember.Location = new System.Drawing.Point(322, 253);
             this.remember.Name = "remember";
             this.remember.Size = new System.Drawing.Size(20, 20);
             this.remember.TabIndex = 4;
@@ -74,7 +74,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Coral;
-            this.label1.Location = new System.Drawing.Point(91, 293);
+            this.label1.Location = new System.Drawing.Point(91, 254);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(145, 16);
             this.label1.TabIndex = 5;
@@ -85,7 +85,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Coral;
-            this.label2.Location = new System.Drawing.Point(91, 380);
+            this.label2.Location = new System.Drawing.Point(91, 341);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(115, 16);
             this.label2.TabIndex = 7;
@@ -96,7 +96,7 @@
             this.reglink.AutoSize = true;
             this.reglink.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.reglink.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.reglink.Location = new System.Drawing.Point(212, 380);
+            this.reglink.Location = new System.Drawing.Point(212, 341);
             this.reglink.Name = "reglink";
             this.reglink.Size = new System.Drawing.Size(81, 16);
             this.reglink.TabIndex = 8;
@@ -109,7 +109,7 @@
             this.sttLg.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.sttLg.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.sttLg.ForeColor = System.Drawing.Color.Red;
-            this.sttLg.Location = new System.Drawing.Point(12, 177);
+            this.sttLg.Location = new System.Drawing.Point(12, 116);
             this.sttLg.Name = "sttLg";
             this.sttLg.Size = new System.Drawing.Size(413, 22);
             this.sttLg.TabIndex = 9;
@@ -117,13 +117,12 @@
             // 
             // Pbot
             // 
-            this.Pbot.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.Pbot.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.Pbot.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Pbot.BackgroundImage")));
-            this.Pbot.Location = new System.Drawing.Point(14, 400);
+            this.Pbot.Location = new System.Drawing.Point(14, 367);
             this.Pbot.Name = "Pbot";
-            this.Pbot.Size = new System.Drawing.Size(411, 20);
+            this.Pbot.Size = new System.Drawing.Size(411, 21);
             this.Pbot.TabIndex = 17;
             // 
             // Pright
@@ -134,13 +133,12 @@
             this.Pright.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Pright.BackgroundImage")));
             this.Pright.Location = new System.Drawing.Point(423, -1);
             this.Pright.Name = "Pright";
-            this.Pright.Size = new System.Drawing.Size(14, 422);
+            this.Pright.Size = new System.Drawing.Size(14, 389);
             this.Pright.TabIndex = 16;
             // 
             // pTop
             // 
-            this.pTop.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.pTop.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pTop.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pTop.BackgroundImage")));
             this.pTop.Location = new System.Drawing.Point(14, -2);
@@ -160,7 +158,7 @@
             this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
             this.panel1.Location = new System.Drawing.Point(0, -1);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(14, 422);
+            this.panel1.Size = new System.Drawing.Size(14, 389);
             this.panel1.TabIndex = 10;
             // 
             // loginBt
@@ -181,7 +179,7 @@
             this.loginBt.IdleFillColor = System.Drawing.Color.White;
             this.loginBt.IdleForecolor = System.Drawing.Color.SeaGreen;
             this.loginBt.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.loginBt.Location = new System.Drawing.Point(66, 319);
+            this.loginBt.Location = new System.Drawing.Point(66, 280);
             this.loginBt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.loginBt.Name = "loginBt";
             this.loginBt.Size = new System.Drawing.Size(312, 57);
@@ -216,7 +214,7 @@
             this.paswd.IconRight = null;
             this.paswd.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
             this.paswd.Lines = new string[0];
-            this.paswd.Location = new System.Drawing.Point(66, 249);
+            this.paswd.Location = new System.Drawing.Point(66, 210);
             this.paswd.MaxLength = 32767;
             this.paswd.MinimumSize = new System.Drawing.Size(100, 35);
             this.paswd.Modified = false;
@@ -290,7 +288,7 @@
             this.usname.IconRight = null;
             this.usname.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
             this.usname.Lines = new string[0];
-            this.usname.Location = new System.Drawing.Point(66, 202);
+            this.usname.Location = new System.Drawing.Point(66, 163);
             this.usname.MaxLength = 32767;
             this.usname.MinimumSize = new System.Drawing.Size(100, 35);
             this.usname.Modified = false;
@@ -339,23 +337,24 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::DotA_Allstars.Properties.Resources.Defense_of_the_Ancientsw;
-            this.pictureBox1.Location = new System.Drawing.Point(66, 21);
+            this.pictureBox1.Image = global::DotA_Allstars.Properties.Resources._84838089_846009162491460_6888765451271143424_n;
+            this.pictureBox1.Location = new System.Drawing.Point(18, 21);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(312, 157);
+            this.pictureBox1.Size = new System.Drawing.Size(401, 139);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
             // mmmBt
             // 
             this.mmmBt.AllowFocused = false;
-            this.mmmBt.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.mmmBt.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.mmmBt.BackColor = System.Drawing.Color.Transparent;
             this.mmmBt.BorderRadius = 100;
             this.mmmBt.Cursor = System.Windows.Forms.Cursors.Hand;
             this.mmmBt.Image = global::DotA_Allstars.Properties.Resources.minimize_window_96px;
             this.mmmBt.IsCircle = false;
-            this.mmmBt.Location = new System.Drawing.Point(373, 2);
+            this.mmmBt.Location = new System.Drawing.Point(372, 0);
             this.mmmBt.Name = "mmmBt";
             this.mmmBt.Size = new System.Drawing.Size(31, 31);
             this.mmmBt.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -367,13 +366,13 @@
             // clBt
             // 
             this.clBt.AllowFocused = false;
-            this.clBt.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.clBt.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.clBt.BackColor = System.Drawing.Color.Transparent;
             this.clBt.BorderRadius = 100;
             this.clBt.Cursor = System.Windows.Forms.Cursors.Hand;
             this.clBt.Image = global::DotA_Allstars.Properties.Resources.close_window_96px;
             this.clBt.IsCircle = false;
-            this.clBt.Location = new System.Drawing.Point(405, 2);
+            this.clBt.Location = new System.Drawing.Point(404, 0);
             this.clBt.Name = "clBt";
             this.clBt.Size = new System.Drawing.Size(31, 31);
             this.clBt.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -386,14 +385,14 @@
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(437, 418);
+            this.ClientSize = new System.Drawing.Size(437, 385);
+            this.Controls.Add(this.sttLg);
             this.Controls.Add(this.mmmBt);
             this.Controls.Add(this.clBt);
             this.Controls.Add(this.Pbot);
             this.Controls.Add(this.Pright);
             this.Controls.Add(this.pTop);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.sttLg);
             this.Controls.Add(this.reglink);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.loginBt);

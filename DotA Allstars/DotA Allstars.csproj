@@ -66,6 +66,7 @@
     <Reference Include="System.IO.Compression" />
     <Reference Include="System.IO.Compression.FileSystem" />
     <Reference Include="System.Management" />
+    <Reference Include="System.ServiceProcess" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -144,6 +145,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon.ico" />
+    <None Include="Resources\84999183_2610916635819017_6718297821335781376_n.jpg" />
+    <None Include="Resources\wellcome.txt" />
+    <None Include="Resources\84838089_846009162491460_6888765451271143424_n.png" />
+    <None Include="Resources\84868220_182171956368465_7002816177512644608_n.jpg" />
     <None Include="Resources\download_96px.png" />
     <None Include="Resources\color_palette_96px.png" />
     <None Include="Resources\minimize_window_96px.png" />

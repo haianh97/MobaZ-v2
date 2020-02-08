@@ -19,6 +19,7 @@ using System.Reflection;
 
 namespace DotA_Allstars
 {
+
     public partial class main : Form
     {
         IrcClient client;
@@ -42,7 +43,7 @@ namespace DotA_Allstars
         private const int cCaption = 32;
         public static string serverj;
         public static string idroom;
-        public string crew = "#" + idroom;
+        public string crew;
         Color color = Color.White;
         OpenFileDialog opf = new OpenFileDialog();
         XmlDocument paket = new XmlDocument();
@@ -103,6 +104,7 @@ namespace DotA_Allstars
             {
                 roomP.Enabled = false;
                 idroom = rooms[listRooms.Items[index].ToString()];
+                crew = "#" + idroom;
                 serverj = "join " + rooms[listRooms.Items[index].ToString()];
                 new statusW(this).ShowDialog();
             }
@@ -173,11 +175,11 @@ namespace DotA_Allstars
 
         private void DoConnect()
         {
-
             client = new IrcClient(ip.Trim(), port, false);
             AddEvents();
             client.Nick = name.Trim();
             rtbOutput.Clear(); // in case they reconnect and have old stuff there
+            rtbOutput.Text = Properties.Resources.wellcome;
             client.Connect();
         }
         private void DoDisconnect()
@@ -215,7 +217,7 @@ namespace DotA_Allstars
                     else
                         client.SendMessage("#" + crew.Trim(), txtSend.Text.Trim());
 
-                    AddToChatWindow("["+DateTime.Now.ToString("HH:MM")+"] - " + name + ": " + txtSend.Text.Trim());
+                    AddToChatWindow(name + ": " + txtSend.Text.Trim());
                     txtSend.Clear();
                     txtSend.Focus();
                 }
@@ -225,7 +227,7 @@ namespace DotA_Allstars
         private void AddToChatWindow(string message)
         {
             rtbOutput.SelectionColor = color;
-            rtbOutput.AppendText(message + "\n");
+            rtbOutput.AppendText("[" + DateTimeOffset.Now.ToString("hh:mm:ss") + "] - " + message + "\n");
             rtbOutput.ScrollToCaret();
         }
 

@@ -127,9 +127,6 @@
   <data name="color_palette_96px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\color_palette_96px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Defense_of_the_Ancientsw" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Defense_of_the_Ancientsw.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="download_96px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\download_96px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -141,5 +138,14 @@
   </data>
   <data name="server_chat" xml:space="preserve">
     <value />
+  </data>
+  <data name="_84838089_846009162491460_6888765451271143424_n" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\84838089_846009162491460_6888765451271143424_n.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="wellcome" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\wellcome.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="_84999183_2610916635819017_6718297821335781376_n" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\84999183_2610916635819017_6718297821335781376_n.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

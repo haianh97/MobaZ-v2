@@ -11,6 +11,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Management;
 using System.Threading;
+using System.ServiceProcess;
 
 namespace DotA_Allstars.mainview
 {
@@ -77,6 +78,7 @@ namespace DotA_Allstars.mainview
                                 }
                                 else
                                 {
+                                    //set metric
                                     Process p = new Process
                                     {
                                         StartInfo =
@@ -99,12 +101,13 @@ namespace DotA_Allstars.mainview
                                         started = false;
                                     }
 
+                                    //off upnp
                                     Process q = new Process
                                     {
                                         StartInfo =
                                     {
-                                        FileName = "netsh.exe",
-                                        Arguments = $"advfirewall firewall set rule group=\"Network Discovery\" new enable=No",
+                                        FileName = "cmd.exe",
+                                        Arguments = $"/c sc config \"upnphost\" start= disabled",
                                         WindowStyle = ProcessWindowStyle.Hidden,
                                         CreateNoWindow = true
                                     }
@@ -120,6 +123,68 @@ namespace DotA_Allstars.mainview
                                         }
                                         starteded = false;
                                     }
+                                    //
+                                    ServiceController service = new ServiceController("SSDPSRV");
+                                    if ((service.Status.Equals(ServiceControllerStatus.Running)))
+                                    {
+                                        try
+                                        {
+                                            TimeSpan timeout = TimeSpan.FromMilliseconds(2000);
+                                            service.Stop();
+                                            service.WaitForStatus(ServiceControllerStatus.Stopped, timeout);
+
+                                            Process r = new Process
+                                            {
+                                                StartInfo =
+                                                {
+                                                    FileName = "cmd.exe",
+                                                    Arguments = $"/c sc config \"SSDPSRV\" start= disabled",
+                                                    WindowStyle = ProcessWindowStyle.Hidden,
+                                                    CreateNoWindow = true
+                                                }
+                                            };
+
+                                            bool startedede = r.Start();
+                                            if (!startedede)
+                                            {
+                                                if (SpinWait.SpinUntil(() => r.HasExited, TimeSpan.FromSeconds(20)))
+                                                {
+                                                    Thread.Sleep(2000);
+                                                    startedede = true;
+                                                }
+                                                startedede = false;
+                                            }
+                                        }
+                                        catch
+                                        {
+                                            
+                                        }
+                                    }
+                                    else
+                                    {
+                                        Process r = new Process
+                                        {
+                                            StartInfo =
+                                            {
+                                                FileName = "cmd.exe",
+                                                Arguments = $"/c sc config \"SSDPSRV\" start= disabled",
+                                                WindowStyle = ProcessWindowStyle.Hidden,
+                                                CreateNoWindow = true
+                                            }
+                                        };
+
+                                        bool startedede = r.Start();
+                                        if (!startedede)
+                                        {
+                                            if (SpinWait.SpinUntil(() => r.HasExited, TimeSpan.FromSeconds(20)))
+                                            {
+                                                Thread.Sleep(2000);
+                                                startedede = true;
+                                            }
+                                            startedede = false;
+                                        }
+                                    }
+                                    
                                 }
                             }
 
@@ -134,88 +199,6 @@ namespace DotA_Allstars.mainview
                         RunCli();
                     }
                 }
-                #region trash
-                /*var values = adt.net_adapters();
-                if (networkrun == false)
-                {
-                    foreach (string n in values)
-                    {
-                        if (n == "ZeroTier One Virtual Port")
-                        {
-                            networkrun = true;
-                            
-                            break;
-                        }
-                        else
-                        {
-                            RunCli();
-                        }
-                    }
-                }
-                else
-                {
-                    foreach (ManagementObject adapter in searcher.Get())
-                    {
-                        string nicName = adapter["NetConnectionID"].ToString();
-                        foreach (ManagementObject configuration in adapter.GetRelated("Win32_NetworkAdapterConfiguration"))
-                        {
-                            if (configuration["IPConnectionMetric"].ToString() == "1")
-                            {
-                                goto ENDOFLOOPS;
-                            }
-                            else
-                            {
-                                Process p = new Process
-                                {
-                                    StartInfo =
-                                    {
-                                        FileName = "netsh.exe",
-                                        Arguments = $"interface ipv4 set interface \"{nicName}\" metric=1",
-                                        UseShellExecute = false,
-                                        RedirectStandardOutput = true
-                                    }
-                                };
-
-                                bool started = p.Start();
-                                if (!started)
-                                {
-                                    if (SpinWait.SpinUntil(() => p.HasExited, TimeSpan.FromSeconds(20)))
-                                    {
-                                        Thread.Sleep(2000);
-                                        started = true;
-                                    }
-                                    started = false;
-                                }
-
-                                Process q = new Process
-                                {
-                                    StartInfo =
-                                    {
-                                        FileName = "netsh.exe",
-                                        Arguments = $"advfirewall firewall set rule group=\"Network Discovery\" new enable=No",
-                                        UseShellExecute = false,
-                                        RedirectStandardOutput = true
-                                    }
-                                };
-
-                                bool starteded = q.Start();
-                                if (!starteded)
-                                {
-                                    if (SpinWait.SpinUntil(() => q.HasExited, TimeSpan.FromSeconds(20)))
-                                    {
-                                        Thread.Sleep(2000);
-                                        starteded = true;
-                                    }
-                                    starteded = false;
-                                }
-                            }
-                        }
-
-                        
-                    }
-                    
-                }*/
-                #endregion
             }
         ENDOFLOOPS:
             {

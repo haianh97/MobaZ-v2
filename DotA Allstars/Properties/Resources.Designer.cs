@@ -61,6 +61,26 @@ namespace DotA_Allstars.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _84838089_846009162491460_6888765451271143424_n {
+            get {
+                object obj = ResourceManager.GetObject("_84838089_846009162491460_6888765451271143424_n", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _84999183_2610916635819017_6718297821335781376_n {
+            get {
+                object obj = ResourceManager.GetObject("_84999183_2610916635819017_6718297821335781376_n", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
         internal static string auth {
@@ -85,16 +105,6 @@ namespace DotA_Allstars.Properties {
         internal static System.Drawing.Bitmap color_palette_96px {
             get {
                 object obj = ResourceManager.GetObject("color_palette_96px", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Defense_of_the_Ancientsw {
-            get {
-                object obj = ResourceManager.GetObject("Defense_of_the_Ancientsw", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -135,6 +145,20 @@ namespace DotA_Allstars.Properties {
         internal static string server_chat {
             get {
                 return ResourceManager.GetString("server_chat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to *************************************************************************************************|
+        ///&amp;#x03;2                                          \|||/  ____________                             |
+        ///&amp;#x03;2 ___     ___    ____    ______      ___   &amp;#x02;/________   /&amp;#x03;14(  mobavietnam.com  )|
+        ///&amp;#x03;2|   \   /   | _|____|_ |  ____  \  / ^ \  &amp;#x02;        /  / &amp;#x03;14,~~~ooO~~(_)~~~~~~~~~,
+        ///&amp;#x03;2| |\ \ / /| || |    | || |____|_| / / \ \ &amp;#x02;      /  /   &amp;#x03;14|  MobaZ Viet Nam    |
+        ///&amp;#x03;2| | \ [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string wellcome {
+            get {
+                return ResourceManager.GetString("wellcome", resourceCulture);
             }
         }
     }

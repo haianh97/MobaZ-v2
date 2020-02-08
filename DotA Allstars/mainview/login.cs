@@ -15,6 +15,7 @@ using System.Xml;
 using System.IO;
 using System.Text.RegularExpressions;
 using AutoUpdaterDotNET;
+using System.ServiceProcess;
 
 namespace DotA_Allstars
 {
@@ -248,6 +249,12 @@ namespace DotA_Allstars
             foreach (var process in Process.GetProcessesByName("war3"))
             {
                 process.Kill();
+            }
+
+            ServiceController service = new ServiceController("ZeroTierOneService");
+            if ((service.Status.Equals(ServiceControllerStatus.Stopped)) || (service.Status.Equals(ServiceControllerStatus.StopPending)))
+            {
+                service.Start();
             }
         }
     }

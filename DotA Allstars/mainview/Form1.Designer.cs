@@ -110,7 +110,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Image = global::DotA_Allstars.Properties.Resources._84999183_2610916635819017_6718297821335781376_n;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(1054, 163);
@@ -260,8 +260,8 @@
             this.rtbOutput.BackColor = System.Drawing.Color.Black;
             this.rtbOutput.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.rtbOutput.Enabled = false;
-            this.rtbOutput.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rtbOutput.ForeColor = System.Drawing.Color.Black;
+            this.rtbOutput.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rtbOutput.ForeColor = System.Drawing.Color.DarkSalmon;
             this.rtbOutput.Location = new System.Drawing.Point(277, 220);
             this.rtbOutput.Name = "rtbOutput";
             this.rtbOutput.ReadOnly = true;
