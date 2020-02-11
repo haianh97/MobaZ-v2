@@ -16,6 +16,7 @@ using TechLifeForum;
 using System.IO.Compression;
 using System.Xml;
 using System.Reflection;
+using Memory;
 
 namespace DotA_Allstars
 {
@@ -23,6 +24,7 @@ namespace DotA_Allstars
     public partial class main : Form
     {
         IrcClient client;
+        Mem m = new Mem();
         public main()
         {
             InitializeComponent();
@@ -258,12 +260,12 @@ namespace DotA_Allstars
         {
             lstUsers.Items.Add(e.User);
         }
-
+        
         void client_UpdateUsers(object sender, UpdateUsersEventArgs e)
         {
             lstUsers.Items.Clear();
             lstUsers.Items.AddRange(e.UserList);
-
+            
         }
 
         void client_ServerMessage(object sender, StringEventArgs e)
@@ -392,23 +394,30 @@ namespace DotA_Allstars
 
         public async void doneDownloadP()
         {
-            //System.IO.Compression..ExtractToDirectory(System.IO.Path.GetDirectoryName(pathWar3.Text) + "\\TFTVersion1.26a.zip", System.IO.Path.GetDirectoryName(pathWar3.Text));
-            using (ZipArchive archive = ZipFile.OpenRead(Path.GetDirectoryName(pathwar3.Text) + "\\TFTVersion1.26a.zip"))
+            try
             {
-                foreach (ZipArchiveEntry entry in archive.Entries)
+                using (ZipArchive archive = ZipFile.OpenRead(Path.GetDirectoryName(pathwar3.Text) + "\\TFTVersion1.26a.zip"))
                 {
+                    foreach (ZipArchiveEntry entry in archive.Entries)
                     {
-                        entry.ExtractToFile(Path.Combine(Path.GetDirectoryName(pathwar3.Text), entry.FullName), true);
+                        {
+                            entry.ExtractToFile(Path.Combine(Path.GetDirectoryName(pathwar3.Text), entry.FullName), true);
+                        }
                     }
                 }
+                sttDl.Text = "Done!";
+                await Task.Delay(2000);
+                sttDl.Text = "";
+                pathwar3.Enabled = true;
+                btnBrower.Enabled = true;
+                btnStart.Enabled = true;
+                btnSave.Enabled = true;
             }
-            sttDl.Text = "Done!";
-            await Task.Delay(2000);
-            sttDl.Text = "";
-            pathwar3.Enabled = true;
-            btnBrower.Enabled = true;
-            btnStart.Enabled = true;
-            btnSave.Enabled = true;
+            catch
+            {
+                MessageBox.Show("Warcraft III đang chạy ngầm. Hãy tắt và thử lại");
+            }
+            
         }
         public void settingG()
         {
@@ -479,7 +488,14 @@ namespace DotA_Allstars
                     var ms = MessageBox.Show("Warcraft III đang chạy, nếu tiếp tục sẽ bị tắt và chạy lại. Bạn có muốn tiếp tục.", "Cảnh báo!", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
                     if(ms == DialogResult.OK)
                     {
-                        process.Kill();
+                        try
+                        {
+                            process.Kill();
+                        }
+                        catch
+                        {
+
+                        }
                     }
                     else
                     {
@@ -504,9 +520,8 @@ namespace DotA_Allstars
                     //NameC();
                     this.WindowState = FormWindowState.Minimized;
                 }
-
             }
-            catch (InvalidOperationException)
+            catch
             {
                 MessageBox.Show("Sai đường dẫn đến war3.exe hoặc trống!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -590,7 +605,28 @@ namespace DotA_Allstars
 
         private void Button1_Click(object sender, EventArgs e)
         {
-            LeaveN();
+            foreach (var process in Process.GetProcessesByName("war3"))
+            {
+                if (process.ProcessName == "War3" || process.ProcessName == "war3")
+                {
+                    MessageBox.Show("Warcraft III đang chạy!", "Cảnh báo!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    goto DontRun;
+                }
+                else
+                {
+                    goto EndLoop;
+                }
+            }
+        EndLoop:
+            {
+                LeaveN();
+            }
+        DontRun:;
         }
+        public void roomPlot()
+        {
+            roomP.Visible = true;
+        }
+
     }
 }

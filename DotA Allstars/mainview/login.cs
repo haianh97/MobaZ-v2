@@ -246,9 +246,18 @@ namespace DotA_Allstars
                     Process.Start(processInfo);
                 }
             }
+
             foreach (var process in Process.GetProcessesByName("war3"))
             {
-                process.Kill();
+                try
+                {
+                    process.Kill();
+                }
+                catch
+                {
+
+                }
+                
             }
 
             ServiceController service = new ServiceController("ZeroTierOneService");

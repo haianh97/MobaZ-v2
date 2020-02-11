@@ -225,16 +225,14 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lstUsers.BackColor = System.Drawing.Color.Black;
             this.lstUsers.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.lstUsers.Enabled = false;
+            this.lstUsers.ColumnWidth = 90;
             this.lstUsers.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstUsers.ForeColor = System.Drawing.SystemColors.Info;
-            this.lstUsers.FormattingEnabled = true;
             this.lstUsers.ItemHeight = 18;
             this.lstUsers.Location = new System.Drawing.Point(774, 242);
             this.lstUsers.Name = "lstUsers";
             this.lstUsers.Size = new System.Drawing.Size(292, 198);
-            this.lstUsers.TabIndex = 0;
-            this.lstUsers.Visible = false;
+            this.lstUsers.TabIndex = 8;
             // 
             // btnColor
             // 
@@ -263,6 +261,7 @@
             this.rtbOutput.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtbOutput.ForeColor = System.Drawing.Color.DarkSalmon;
             this.rtbOutput.Location = new System.Drawing.Point(277, 220);
+            this.rtbOutput.MaxLength = 0;
             this.rtbOutput.Name = "rtbOutput";
             this.rtbOutput.ReadOnly = true;
             this.rtbOutput.Size = new System.Drawing.Size(475, 309);
@@ -866,7 +865,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox btnSetting;
         private Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox searchPing;
-        private System.Windows.Forms.ListBox lstUsers;
         private System.Windows.Forms.PictureBox btnColor;
         private System.Windows.Forms.RichTextBox rtbOutput;
         private Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox txtSend;
@@ -902,5 +900,6 @@
         private System.Windows.Forms.Label sttSV;
         private System.Windows.Forms.Label mapName;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ListBox lstUsers;
     }
 }

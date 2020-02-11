@@ -56,22 +56,31 @@ namespace DotA_Allstars.mainview
             RunCli();
             ManagementObjectSearcher searcher = new ManagementObjectSearcher("Select * From Win32_NetworkAdapter WHERE Name=\"ZeroTier One Virtual Port\"");
             //Adapter adt = new Adapter();
-            
             while (true)
             {
                 foreach (ManagementObject adapter in searcher.Get())
                 {
                     if(adapter["Name"].ToString() == "ZeroTier One Virtual Port")
                     {
-                        connectstt.Invoke((MethodInvoker)delegate
+                        try
                         {
-                            connectstt.Text = "Set Metrix, Off UPnP...";
-                        });
-                        string nicName = adapter["NetConnectionID"].ToString();
+                            connectstt.Invoke((MethodInvoker)delegate
+                            {
+                                connectstt.Text = "Set Metrix, Off UPnP...";
+                                clBt.Visible = true;
+
+                            });
+                        }
+                        catch
+                        {
+
+                        }
                         foreach (ManagementObject configuration in adapter.GetRelated("Win32_NetworkAdapterConfiguration"))
                         {
                             try
                             {
+                                string nicName = adapter["NetConnectionID"].ToString();
+                                
                                 if (configuration["IPConnectionMetric"].ToString() == "1")
                                 {
                                     goto ENDOFLOOPS;
@@ -83,8 +92,8 @@ namespace DotA_Allstars.mainview
                                     {
                                         StartInfo =
                                     {
-                                        FileName = "netsh.exe",
-                                        Arguments = $"interface ipv4 set interface \"{nicName}\" metric=1",
+                                        FileName = "cmd.exe",
+                                        Arguments = $"/c netsh interface ipv4 set interface \"{nicName}\" metric=1",
                                         WindowStyle = ProcessWindowStyle.Hidden,
                                         CreateNoWindow = true
                                     }
@@ -202,11 +211,36 @@ namespace DotA_Allstars.mainview
             }
         ENDOFLOOPS:
             {
-                Invoke(new MethodInvoker(delegate {
+                try
+                {
+                    Invoke(new MethodInvoker(delegate {
+                        mn.Success();
+                        mn.settingG();
+                        this.Close();
+                    }));
+                }
+                catch
+                {
+
+                }
+            }
+        }
+
+        private void ClBt_Click(object sender, EventArgs e)
+        {
+            if(MessageBox.Show("Khi bạn tắt tiến trình này, bạn cần set metric bằng tay.") == DialogResult.OK)
+            {
+                try
+                {
                     mn.Success();
                     mn.settingG();
+                    mn.roomPlot();
                     this.Close();
-                }));
+                }
+                catch
+                {
+
+                } 
             }
         }
     }

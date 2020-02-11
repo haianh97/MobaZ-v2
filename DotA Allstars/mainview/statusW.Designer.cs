@@ -35,6 +35,8 @@
             this.Pbot = new System.Windows.Forms.Panel();
             this.Pright = new System.Windows.Forms.Panel();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.clBt = new Bunifu.UI.WinForms.BunifuPictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.clBt)).BeginInit();
             this.SuspendLayout();
             // 
             // connectstt
@@ -97,6 +99,25 @@
             // 
             this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.BackgroundWorker1_DoWork);
             // 
+            // clBt
+            // 
+            this.clBt.AllowFocused = false;
+            this.clBt.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.clBt.BackColor = System.Drawing.Color.Transparent;
+            this.clBt.BorderRadius = 100;
+            this.clBt.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.clBt.Image = global::DotA_Allstars.Properties.Resources.close_window_96px;
+            this.clBt.IsCircle = false;
+            this.clBt.Location = new System.Drawing.Point(224, 0);
+            this.clBt.Name = "clBt";
+            this.clBt.Size = new System.Drawing.Size(31, 31);
+            this.clBt.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.clBt.TabIndex = 20;
+            this.clBt.TabStop = false;
+            this.clBt.Type = Bunifu.UI.WinForms.BunifuPictureBox.Types.Custom;
+            this.clBt.Visible = false;
+            this.clBt.Click += new System.EventHandler(this.ClBt_Click);
+            // 
             // statusW
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -104,6 +125,7 @@
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(255, 173);
             this.ControlBox = false;
+            this.Controls.Add(this.clBt);
             this.Controls.Add(this.Pright);
             this.Controls.Add(this.Pbot);
             this.Controls.Add(this.panel1);
@@ -117,6 +139,7 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.StatusW_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.clBt)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -129,5 +152,6 @@
         private System.Windows.Forms.Panel Pbot;
         private System.Windows.Forms.Panel Pright;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private Bunifu.UI.WinForms.BunifuPictureBox clBt;
     }
 }
