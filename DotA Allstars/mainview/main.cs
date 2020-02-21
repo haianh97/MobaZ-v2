@@ -111,10 +111,10 @@ namespace DotA_Allstars
             {
                 //MessageBox.Show(listRooms.Items[index].ToString().Substring(13));
                 roomP.Enabled = false;
-                idroom = rooms[listRooms.Items[index].ToString().Substring(12)];
+                idroom = rooms[listRooms.Items[index].ToString().Substring(0)];
                 //MessageBox.Show(listRooms.Items[index].ToString());
                 crew = "#" + idroom;
-                serverj = "join " + rooms[listRooms.Items[index].ToString().Substring(12)];
+                serverj = "join " + rooms[listRooms.Items[index].ToString().Substring(0)];
                 Success();
                 new statusW(this).ShowDialog();
                 
