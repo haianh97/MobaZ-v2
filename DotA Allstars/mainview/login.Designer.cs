@@ -64,7 +64,7 @@
             this.remember.Checked = false;
             this.remember.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(205)))), ((int)(((byte)(117)))));
             this.remember.ForeColor = System.Drawing.Color.White;
-            this.remember.Location = new System.Drawing.Point(322, 253);
+            this.remember.Location = new System.Drawing.Point(322, 259);
             this.remember.Name = "remember";
             this.remember.Size = new System.Drawing.Size(20, 20);
             this.remember.TabIndex = 4;
@@ -74,7 +74,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Coral;
-            this.label1.Location = new System.Drawing.Point(91, 254);
+            this.label1.Location = new System.Drawing.Point(91, 260);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(145, 16);
             this.label1.TabIndex = 5;
@@ -85,7 +85,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Coral;
-            this.label2.Location = new System.Drawing.Point(91, 341);
+            this.label2.Location = new System.Drawing.Point(119, 341);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(115, 16);
             this.label2.TabIndex = 7;
@@ -96,7 +96,7 @@
             this.reglink.AutoSize = true;
             this.reglink.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.reglink.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.reglink.Location = new System.Drawing.Point(212, 341);
+            this.reglink.Location = new System.Drawing.Point(240, 341);
             this.reglink.Name = "reglink";
             this.reglink.Size = new System.Drawing.Size(81, 16);
             this.reglink.TabIndex = 8;
@@ -259,7 +259,6 @@
             this.paswd.TextPlaceholder = "Mật khẩu";
             this.paswd.UseSystemPasswordChar = false;
             this.paswd.WordWrap = true;
-            this.paswd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Usname_KeyPress);
             // 
             // usname
             // 

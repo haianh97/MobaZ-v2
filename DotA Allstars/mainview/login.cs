@@ -19,6 +19,7 @@ using System.ServiceProcess;
 
 namespace DotA_Allstars
 {
+   
     public partial class login : Form
     {
         public static bool drag = false;
@@ -33,7 +34,7 @@ namespace DotA_Allstars
             Process[] processes = Process.GetProcessesByName(procName);
             AutoUpdater.Mandatory = true;
             AutoUpdater.UpdateMode = Mode.Forced;
-            AutoUpdater.Start("http://103.90.225.234/NDPatchUpdate/ud.xml");
+            AutoUpdater.Start("http://103.56.157.165/ud.xml");
             if (processes.Length > 1)
             {
                 if (MessageBox.Show(procName + " already running", "MobaZ", MessageBoxButtons.OK, MessageBoxIcon.Warning) == DialogResult.OK)
@@ -116,7 +117,10 @@ namespace DotA_Allstars
                 //set disable
                 sttLg.Text = "";
                 loginBt.Visible = false;
-                this.Enabled = false;
+                usname.Enabled = false;
+                paswd.Enabled = false;
+                remember.Enabled = false;
+                reglink.Enabled = false;
 
                 var values = new Dictionary<string, string>
                 {
@@ -125,50 +129,62 @@ namespace DotA_Allstars
                 };
 
                 var content = new FormUrlEncodedContent(values);
-                Task.Run(async () => {
-                    var response = await connect.PostAsync("https://mobaz-auth.glitch.me/login", content);
-                    var responseString = await response.Content.ReadAsStringAsync();
-                    if (responseString == "OK")
-                    {
-                        Invoke((MethodInvoker)delegate
+                try
+                {
+                    Task.Run(async () => {
+                        var response = await connect.PostAsync("https://mobaz-auth.glitch.me/login", content);
+                        var responseString = await response.Content.ReadAsStringAsync();
+                        if (responseString == "OK")
                         {
-                            main.name = usname.Text;
-                            paket.Load("paket.xml");
-                            XmlNode rem = paket.SelectSingleNode("settings/remem");
-                            XmlNode us = paket.SelectSingleNode("settings/us");
-                            XmlNode pw = paket.SelectSingleNode("settings/pw");
-                            XmlNode save = paket.SelectSingleNode("settings/war3");
-                            XmlNode taget = paket.SelectSingleNode("settings/taget");
-                            path = save.Attributes[0].Value;
-                            tagetW = taget.Attributes[0].Value;
-                            if (remember.Checked == true)
+                            Invoke((MethodInvoker)delegate
                             {
-                                rem.Attributes[0].Value = "1";
-                                us.Attributes[0].Value = usname.Text;
-                                pw.Attributes[0].Value = paswd.Text;
-                                paket.Save("paket.xml");
-                            }
-                            else
+                                main.name = usname.Text;
+                                paket.Load("paket.xml");
+                                XmlNode rem = paket.SelectSingleNode("settings/remem");
+                                XmlNode us = paket.SelectSingleNode("settings/us");
+                                XmlNode pw = paket.SelectSingleNode("settings/pw");
+                                XmlNode save = paket.SelectSingleNode("settings/war3");
+                                XmlNode taget = paket.SelectSingleNode("settings/taget");
+                                path = save.Attributes[0].Value;
+                                tagetW = taget.Attributes[0].Value;
+                                if (remember.Checked == true)
+                                {
+                                    rem.Attributes[0].Value = "1";
+                                    us.Attributes[0].Value = usname.Text;
+                                    pw.Attributes[0].Value = paswd.Text;
+                                    paket.Save("paket.xml");
+                                }
+                                else
+                                {
+                                    rem.Attributes[0].Value = "0";
+                                    us.Attributes[0].Value = "";
+                                    pw.Attributes[0].Value = "";
+                                    paket.Save("paket.xml");
+                                }
+                                this.Close();
+                                Thread th = new Thread(NewFormMain);
+                                th.SetApartmentState(ApartmentState.STA);
+                                th.Start();
+                            });
+                        }
+                        else
+                            Invoke((MethodInvoker)delegate
                             {
-                                rem.Attributes[0].Value = "0";
-                                us.Attributes[0].Value = "";
-                                pw.Attributes[0].Value = "";
-                                paket.Save("paket.xml");
-                            }
-                            this.Close();
-                            Thread th = new Thread(NewFormMain);
-                            th.SetApartmentState(ApartmentState.STA);
-                            th.Start();
-                        });
-                    }
-                    else
-                        Invoke((MethodInvoker)delegate
-                        {
-                            sttLg.Text = "Tên đăng nhập hoặc mật khẩu sai.";
-                            loginBt.Visible = true;
-                            this.Enabled = true;
-                        });
-                });
+                                sttLg.Text = "Tên đăng nhập hoặc mật khẩu sai.";
+                                loginBt.Visible = true;
+                                loginBt.Visible = true;
+                                usname.Enabled = true;
+                                paswd.Enabled = true;
+                                remember.Enabled = true;
+                                reglink.Enabled = true;
+                            });
+                    });
+                }
+                catch
+                {
+                    MessageBox.Show("Kết nối với máy chủ bị gián đoạn");
+                }
+                
             }
         }
 

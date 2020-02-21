@@ -84,6 +84,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Adapters.cs" />
     <Compile Include="mainview\main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -149,6 +150,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon.ico" />
+    <None Include="Resources\86386248_222037115625505_8116547698976358400_n.jpg" />
     <None Include="Resources\84999183_2610916635819017_6718297821335781376_n.jpg" />
     <None Include="Resources\wellcome.txt" />
     <None Include="Resources\84838089_846009162491460_6888765451271143424_n.png" />

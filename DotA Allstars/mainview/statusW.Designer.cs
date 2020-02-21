@@ -115,7 +115,6 @@
             this.clBt.TabIndex = 20;
             this.clBt.TabStop = false;
             this.clBt.Type = Bunifu.UI.WinForms.BunifuPictureBox.Types.Custom;
-            this.clBt.Visible = false;
             this.clBt.Click += new System.EventHandler(this.ClBt_Click);
             // 
             // statusW

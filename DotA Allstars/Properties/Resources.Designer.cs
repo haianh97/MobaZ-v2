@@ -81,6 +81,16 @@ namespace DotA_Allstars.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _86386248_222037115625505_8116547698976358400_n {
+            get {
+                object obj = ResourceManager.GetObject("_86386248_222037115625505_8116547698976358400_n", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
         internal static string auth {
@@ -149,12 +159,12 @@ namespace DotA_Allstars.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to *************************************************************************************************|
-        ///&amp;#x03;2                                          \|||/  ____________                             |
-        ///&amp;#x03;2 ___     ___    ____    ______      ___   &amp;#x02;/________   /&amp;#x03;14(  mobavietnam.com  )|
-        ///&amp;#x03;2|   \   /   | _|____|_ |  ____  \  / ^ \  &amp;#x02;        /  / &amp;#x03;14,~~~ooO~~(_)~~~~~~~~~,
-        ///&amp;#x03;2| |\ \ / /| || |    | || |____|_| / / \ \ &amp;#x02;      /  /   &amp;#x03;14|  MobaZ Viet Nam    |
-        ///&amp;#x03;2| | \ [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to *************************************************************************************
+        ///*                          Chào mừng bạn đến với Moba-Z.                            *
+        ///*      Nền tảng chơi Dota Online được phát triển bởi cộng đồng Moba Việt Nam.       *
+        ///*  Group:   Dota 1 Will Never Die  www.facebook.com/groups/1693907914219466         *
+        ///*  Website: MobaVietNam            www.mobavietnam.com                              *
+        ///*  Fanpage: MobaVietNam            www.facebook.com/gamemobavietnam           [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string wellcome {
             get {
