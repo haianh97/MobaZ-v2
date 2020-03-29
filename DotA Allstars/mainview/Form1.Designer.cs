@@ -527,7 +527,7 @@
             this.listRooms.ItemHeight = 16;
             this.listRooms.Location = new System.Drawing.Point(0, 54);
             this.listRooms.Name = "listRooms";
-            this.listRooms.Size = new System.Drawing.Size(240, 208);
+            this.listRooms.Size = new System.Drawing.Size(240, 64);
             this.listRooms.TabIndex = 0;
             this.listRooms.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.ListRooms_MouseDoubleClick);
             // 
@@ -549,6 +549,7 @@
             this.roomP.BackColor = System.Drawing.Color.Transparent;
             this.roomP.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("roomP.BackgroundImage")));
             this.roomP.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.roomP.Controls.Add(this.button1);
             this.roomP.Controls.Add(this.bunifuCustomLabel1);
             this.roomP.Controls.Add(this.listRooms);
             this.roomP.Location = new System.Drawing.Point(15, 206);
@@ -769,9 +770,9 @@
             this.mapName.ForeColor = System.Drawing.Color.Red;
             this.mapName.Location = new System.Drawing.Point(32, 100);
             this.mapName.Name = "mapName";
-            this.mapName.Size = new System.Drawing.Size(120, 13);
+            this.mapName.Size = new System.Drawing.Size(144, 13);
             this.mapName.TabIndex = 28;
-            this.mapName.Text = "DotA-6.83d-MobaZ.w3x";
+            this.mapName.Text = "DotA-6.83d-MobaZ-v1.0.w3x";
             this.mapName.Click += new System.EventHandler(this.MapName_Click);
             // 
             // sttSV
@@ -865,9 +866,7 @@
             this.BackColor = System.Drawing.Color.Black;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1084, 591);
-            this.Controls.Add(this.bgrroom);
             this.Controls.Add(this.ver);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.clBt);
             this.Controls.Add(this.mmmBt);
             this.Controls.Add(this.mxmBt);
@@ -884,13 +883,12 @@
             this.Controls.Add(this.txtSend);
             this.Controls.Add(this.btnStart);
             this.Controls.Add(this.mainP);
+            this.Controls.Add(this.bgrroom);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MobaZ (Open beta)";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Main_FormClosing);
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Main_FormClosed);
             this.Load += new System.EventHandler(this.Main_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

@@ -130,6 +130,15 @@ namespace DotA_Allstars.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to [{&quot;name&quot;:&quot;MobaZ Dota Room&quot;,&quot;networkID&quot;:&quot;e4da7455b23918d9&quot;},{&quot;name&quot;:&quot;MobaZ LoD,Imba Room&quot;,&quot;networkID&quot;:&quot;35c192ce9b2578d4&quot;},{&quot;name&quot;:&quot;MobaZ DDay Room&quot;,&quot;networkID&quot;:&quot;d5e5fb65370025f8&quot;},{&quot;name&quot;:&quot;MobaZ GreenTD room&quot;,&quot;networkID&quot;:&quot;0cccb752f7bc2d9f&quot;},{&quot;name&quot;:&quot;MobaZ Divine Room&quot;,&quot;networkID&quot;:&quot;d5e5fb65377b3dcf&quot;},{&quot;name&quot;:&quot;MobaZ Troll and Elves Room&quot;,&quot;networkID&quot;:&quot;0cccb752f7c9a6ef&quot;},{&quot;name&quot;:&quot;MobaZ Thiên kiếm Room&quot;,&quot;networkID&quot;:&quot;3efa5cb78a55696e&quot;},{&quot;name&quot;:&quot;MobaZ Tổng hợp Room&quot;,&quot;networkID&quot;:&quot;84ac5c10a05dc08&quot;},{&quot;name&quot;:&quot;MobaZ Kiế [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string list_room {
+            get {
+                return ResourceManager.GetString("list_room", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap maximize_window_96px {
@@ -159,12 +168,10 @@ namespace DotA_Allstars.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to *************************************************************************************
-        ///*                          Chào mừng bạn đến với Moba-Z.                            *
-        ///*      Nền tảng chơi Dota Online được phát triển bởi cộng đồng Moba Việt Nam.       *
-        ///*  Group:   Dota 1 Will Never Die  www.facebook.com/groups/1693907914219466         *
-        ///*  Website: MobaVietNam            www.mobavietnam.com                              *
-        ///*  Fanpage: MobaVietNam            www.facebook.com/gamemobavietnam           [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to ********************************************************************************************************************************
+        ///*                                                                Chào mừng bạn đến với Moba-Z.                                                                                 
+        ///*                                  Nền tảng chơi Dota Online được phát triển bởi cộng đồng Moba Việt Nam.       
+        ///*                Group: Dota 1 Will Never Die  www.facebook.com/groups/1693907914219466     [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string wellcome {
             get {

@@ -10,9 +10,10 @@
     <AssemblyName>DotA Allstars</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <AutoGenerateBindingRedirects>false</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
-    <TargetFrameworkProfile />
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -23,6 +24,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -32,6 +34,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>icon.ico</ApplicationIcon>
@@ -55,7 +58,10 @@
     </Reference>
     <Reference Include="IrcClient, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Users\haita\OneDrive\Máy tính\IrcClient-csharp-master\IrcClient-csharp\bin\Debug\IrcClient.dll</HintPath>
+      <HintPath>D:\1 Desktop Folder\IrcClient-csharp-master\IrcClient-csharp\bin\Debug\IrcClient.dll</HintPath>
+    </Reference>
+    <Reference Include="Lunar">
+      <HintPath>C:\Users\haita\OneDrive\Máy tính\Lunar-master\Lunar\bin\Debug\netcoreapp3.1\Lunar.dll</HintPath>
     </Reference>
     <Reference Include="Memory, Version=1.2.18.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Memory.dll.1.2.18.1\lib\net452\Memory.dll</HintPath>
@@ -103,12 +109,6 @@
     <Compile Include="mainview\signup.Designer.cs">
       <DependentUpon>signup.cs</DependentUpon>
     </Compile>
-    <Compile Include="mainview\statusW.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="mainview\statusW.Designer.cs">
-      <DependentUpon>statusW.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="mainview\login.resx">
@@ -119,9 +119,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="mainview\signup.resx">
       <DependentUpon>signup.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="mainview\statusW.resx">
-      <DependentUpon>statusW.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

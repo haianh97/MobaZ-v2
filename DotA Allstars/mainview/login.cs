@@ -30,11 +30,14 @@ namespace DotA_Allstars
             InitializeComponent();
             this.SuspendLayout();
             this.ResumeLayout(true);
-            string procName = Process.GetCurrentProcess().ProcessName;       
-            Process[] processes = Process.GetProcessesByName(procName);
+            
             AutoUpdater.Mandatory = true;
             AutoUpdater.UpdateMode = Mode.Forced;
             AutoUpdater.Start("http://103.56.157.165/ud.xml");
+
+            //Check running
+            /*string procName = Process.GetCurrentProcess().ProcessName;       
+            Process[] processes = Process.GetProcessesByName(procName);
             if (processes.Length > 1)
             {
                 if (MessageBox.Show(procName + " already running", "MobaZ", MessageBoxButtons.OK, MessageBoxIcon.Warning) == DialogResult.OK)
@@ -42,7 +45,9 @@ namespace DotA_Allstars
                     Environment.Exit(1);
                 }
 
-            }
+            }*/
+
+            //Checking setting
             if (!File.Exists("paket.xml") || File.Exists("paket.xml") && new FileInfo("paket.xml").Length == 0 || File.Exists("paket.xml") && new FileInfo("paket.xml").Length == 3)
             {
                 XmlWriter crtxml = XmlWriter.Create("paket.xml");
@@ -95,7 +100,6 @@ namespace DotA_Allstars
                     paswd.Text = password;
                 }
             }
-            LeaveOldNetWorks();
         }
 
         public static readonly HttpClient connect = new HttpClient();
@@ -239,48 +243,6 @@ namespace DotA_Allstars
         {
             Regex regex = new Regex("[^0-9a-zA-Z.^-^_-`\b-]+");
             e.Handled = regex.IsMatch(e.KeyChar.ToString());
-        }
-
-        public void LeaveOldNetWorks()
-        {
-            foreach (var files in Directory.GetFiles(@"C:\ProgramData\ZeroTier\One\networks.d\"))
-            {
-                FileInfo info = new FileInfo(files);
-                var fileName = Path.GetFileNameWithoutExtension(info.FullName);
-                ProcessStartInfo processInfo = new ProcessStartInfo();
-                processInfo.WindowStyle = ProcessWindowStyle.Hidden;
-                if (!File.Exists(@"C:\Program Files (x86)\ZeroTier\One\zerotier-cli.bat"))
-                {
-                    processInfo.FileName = @"C:\Program Files\ZeroTier\One\zerotier-cli.bat";
-                    processInfo.Arguments = "leave "+fileName;
-                    Process.Start(processInfo);
-                }
-                else
-                {
-                    processInfo.FileName = @"C:\Program Files (x86)\ZeroTier\One\zerotier-cli.bat";
-                    processInfo.Arguments = "leave " + fileName;
-                    Process.Start(processInfo);
-                }
-            }
-
-            foreach (var process in Process.GetProcessesByName("war3"))
-            {
-                try
-                {
-                    process.Kill();
-                }
-                catch
-                {
-
-                }
-                
-            }
-
-            ServiceController service = new ServiceController("ZeroTierOneService");
-            if ((service.Status.Equals(ServiceControllerStatus.Stopped)) || (service.Status.Equals(ServiceControllerStatus.StopPending)))
-            {
-                service.Start();
-            }
         }
     }
 }

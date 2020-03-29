@@ -1,24 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Net;
 using System.IO;
 using Newtonsoft.Json.Linq;
 using System.Diagnostics;
-using DotA_Allstars.mainview;
 using TechLifeForum;
 using System.IO.Compression;
 using System.Xml;
 using System.Reflection;
-using Memory;
-using System.Runtime.InteropServices;
-using System.Net.Sockets;
 
 namespace DotA_Allstars
 {
@@ -26,7 +18,6 @@ namespace DotA_Allstars
     public partial class main : Form
     {
         IrcClient client;
-        Mem m = new Mem();
         public main()
         {
             InitializeComponent();
@@ -75,19 +66,7 @@ namespace DotA_Allstars
 
         public void GetRooms()
         {
-            //Connect(ip,"003 " + name);
-            string html = string.Empty;
-            string url = @"https://mobaz-lan.glitch.me/list-room";
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
-            request.AutomaticDecompression = DecompressionMethods.GZip;
-            request.Timeout = 30000;
-            using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
-            using (Stream stream = response.GetResponseStream())
-            using (StreamReader reader = new StreamReader(stream))
-            {
-                html = reader.ReadToEnd();
-            }
-            JToken token = JObject.Parse("{\"rooms\":" + html + "}");
+            JToken token = JObject.Parse("{\"rooms\":" + Properties.Resources.list_room + "}");
             JArray items = (JArray)token["rooms"];
             int length = items.Count;
             for (int i = 0; i < length; i++)
@@ -98,8 +77,7 @@ namespace DotA_Allstars
             }
             foreach (var pair in rooms)
             {
-                //Connect(ip, "004 #" + pair.Value);
-                listRooms.Items.Add(/*"(" + Int32.Parse(responseData).ToString("D3") + "/224) - "+*/pair.Key);
+                listRooms.Items.Add(pair.Key);
             }
             
         }
@@ -109,36 +87,16 @@ namespace DotA_Allstars
             int index = this.listRooms.IndexFromPoint(e.Location);
             if (index != ListBox.NoMatches)
             {
-                //MessageBox.Show(listRooms.Items[index].ToString().Substring(13));
                 roomP.Enabled = false;
                 idroom = rooms[listRooms.Items[index].ToString().Substring(0)];
-                //MessageBox.Show(listRooms.Items[index].ToString());
                 crew = "#" + idroom;
                 serverj = "join " + rooms[listRooms.Items[index].ToString().Substring(0)];
                 Success();
-                new statusW(this).ShowDialog();
-                
             }
         }
 
         private void ClBt_Click(object sender, EventArgs e)
         {
-            ProcessStartInfo processInfo = new ProcessStartInfo();
-            processInfo.WindowStyle = ProcessWindowStyle.Hidden;
-            if (!File.Exists(@"C:\Program Files (x86)\ZeroTier\One\zerotier-cli.bat"))
-            {
-                processInfo.FileName = @"C:\Program Files\ZeroTier\One\zerotier-cli.bat";
-                processInfo.Arguments = "leave " + idroom;
-                Process.Start(processInfo);
-
-            }
-            else
-            {
-                processInfo.FileName = @"C:\Program Files (x86)\ZeroTier\One\zerotier-cli.bat";
-                processInfo.Arguments = "leave " + idroom;
-                Process.Start(processInfo);
-            }
-            
             Environment.Exit(1);
         }
 
@@ -355,7 +313,7 @@ namespace DotA_Allstars
                 {
                     pathwar3.Text = Path.Combine(Path.GetDirectoryName(opf.FileName), opf.FileName);
                     var gameVer = FileVersionInfo.GetVersionInfo(pathwar3.Text);
-                    if (gameVer.FileVersion != "1, 26, 0, 6401")
+                    if (gameVer.FileVersion != "1, 26, 0, 6401" || !File.Exists(Path.GetDirectoryName(pathwar3.Text) + "\\w3l.exe"))
                     {
                         pathwar3.Enabled = false;
                         btnBrower.Enabled = false;
@@ -365,15 +323,15 @@ namespace DotA_Allstars
                         {
                             wcp.DownloadProgressChanged += wc_DownloadProgressChangedP;
                             wcp.DownloadFileAsync(
-                                new Uri("http://103.56.157.165/TFTVersion1.26a.zip"),
-                                Path.GetDirectoryName(pathwar3.Text) + "\\TFTVersion1.26a.zip"
+                                new Uri("http://103.56.157.165/TFTVersion1.26a.new.zip"),
+                                Path.GetDirectoryName(pathwar3.Text) + "\\TFTVersion1.26a.new.zip"
                             );
                         }
-                        
+
                     }
                     try
                     {
-                        if (!File.Exists(System.IO.Path.GetDirectoryName(pathwar3.Text) + "\\Maps\\DotA-6.83d-MobaZ.w3x"))
+                        if (!File.Exists(System.IO.Path.GetDirectoryName(pathwar3.Text) + "\\Maps\\DotA-6.83d-MobaZ-v1.0.w3x"))
                         {
                             mapName.ForeColor = Color.Red;
                         }
@@ -392,7 +350,7 @@ namespace DotA_Allstars
 
         void wc_DownloadProgressChangedP(object sender, DownloadProgressChangedEventArgs e)
         {
-            sttDl.Text = "1.26a downloading..." + e.ProgressPercentage + "%";
+            sttDl.Text = "1.26a new downloading..." + e.ProgressPercentage + "%";
             if (e.ProgressPercentage == 100)
             {
                 sttDl.Text = "Extract...";
@@ -404,7 +362,7 @@ namespace DotA_Allstars
         {
             try
             {
-                using (ZipArchive archive = ZipFile.OpenRead(Path.GetDirectoryName(pathwar3.Text) + "\\TFTVersion1.26a.zip"))
+                using (ZipArchive archive = ZipFile.OpenRead(Path.GetDirectoryName(pathwar3.Text) + "\\TFTVersion1.26a.new.zip"))
                 {
                     foreach (ZipArchiveEntry entry in archive.Entries)
                     {
@@ -467,8 +425,8 @@ namespace DotA_Allstars
                 {
                     wc.DownloadProgressChanged += wc_DownloadProgressChanged;
                     wc.DownloadFileAsync(
-                        new System.Uri("http://103.56.157.165/DotA-6.83d-MobaZ.w3x"),
-                        System.IO.Path.GetDirectoryName(pathwar3.Text) + "\\Maps\\DotA-6.83d-MobaZ.w3x"
+                        new System.Uri("http://103.56.157.165/DotA-6.83d-MobaZ-v1.0.w3x"),
+                        System.IO.Path.GetDirectoryName(pathwar3.Text) + "\\Maps\\DotA-6.83d-MobaZ-v1.0.w3x"
                     );
                 }
             }
@@ -497,41 +455,18 @@ namespace DotA_Allstars
 
         private void BtnStart_Click(object sender, EventArgs e)
         {
-            foreach (var process in Process.GetProcessesByName("war3"))
-            {
-                if(process.ProcessName == "War3" || process.ProcessName == "war3")
-                {
-                    var ms = MessageBox.Show("Warcraft III đang chạy, nếu tiếp tục sẽ bị tắt và chạy lại. Bạn có muốn tiếp tục.", "Cảnh báo!", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
-                    if(ms == DialogResult.OK)
-                    {
-                        try
-                        {
-                            process.Kill();
-                        }
-                        catch
-                        {
-
-                        }
-                    }
-                    else
-                    {
-                        goto EndLoop;
-                    }
-                }
-                
-            }
             try
             {
                 var gameVer = FileVersionInfo.GetVersionInfo(pathwar3.Text);
-                if (gameVer.FileVersion != "1, 26, 0, 6401")
+                if (gameVer.FileVersion != "1, 26, 0, 6401" || !File.Exists(Path.GetDirectoryName(pathwar3.Text) + "\\w3l.exe"))
                 {
-                    MessageBox.Show("Lỗi phiên bản, mời cập nhập lên 1.26a", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Lỗi phiên bản, mời cập nhập lên 1.26a new", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
                     Process RunGame = new Process();
-                    RunGame.StartInfo.FileName = pathwar3.Text;
-                    if(window.Checked == true)
+                    RunGame.StartInfo.FileName = Path.GetDirectoryName(pathwar3.Text) + "\\w3l.exe";
+                    if (window.Checked == true)
                         RunGame.StartInfo.Arguments = string.Concat(" -window");
                     RunGame.Start();
                     //NameC();
@@ -541,46 +476,6 @@ namespace DotA_Allstars
             catch
             {
                 MessageBox.Show("Sai đường dẫn đến war3.exe hoặc trống!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        EndLoop:;
-        }
-
-        private void Main_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            ProcessStartInfo processInfo = new ProcessStartInfo();
-            processInfo.WindowStyle = ProcessWindowStyle.Hidden;
-            if (!File.Exists(@"C:\Program Files (x86)\ZeroTier\One\zerotier-cli.bat"))
-            {
-                processInfo.FileName = @"C:\Program Files\ZeroTier\One\zerotier-cli.bat";
-                processInfo.Arguments = "leave " + idroom;
-                Process.Start(processInfo);
-                Close();
-            }
-            else
-            {
-                processInfo.FileName = @"C:\Program Files (x86)\ZeroTier\One\zerotier-cli.bat";
-                processInfo.Arguments = "leave " + idroom;
-                Process.Start(processInfo);
-                Close();
-            }
-        }
-
-        private void Main_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            ProcessStartInfo processInfo = new ProcessStartInfo();
-            processInfo.WindowStyle = ProcessWindowStyle.Hidden;
-            if (!File.Exists(@"C:\Program Files (x86)\ZeroTier\One\zerotier-cli.bat"))
-            {
-                processInfo.FileName = @"C:\Program Files\ZeroTier\One\zerotier-cli.bat";
-                processInfo.Arguments = "leave " + idroom;
-                Process.Start(processInfo);
-                
-            }
-            else
-            {
-                processInfo.FileName = @"C:\Program Files (x86)\ZeroTier\One\zerotier-cli.bat";
-                processInfo.Arguments = "leave " + idroom;
-                Process.Start(processInfo);
             }
         }
 
@@ -604,23 +499,6 @@ namespace DotA_Allstars
                 btnStart.Visible = false;
                 button1.Visible = false;
                 DoDisconnect();
-                ProcessStartInfo processInfo = new ProcessStartInfo();
-                processInfo.WindowStyle = ProcessWindowStyle.Hidden;
-                if (!File.Exists(@"C:\Program Files (x86)\ZeroTier\One\zerotier-cli.bat"))
-                {
-                    processInfo.FileName = @"C:\Program Files\ZeroTier\One\zerotier-cli.bat";
-                    processInfo.Arguments = "leave " + idroom;
-                    Process.Start(processInfo);
-
-                }
-                else
-                {
-                    processInfo.FileName = @"C:\Program Files (x86)\ZeroTier\One\zerotier-cli.bat";
-                    processInfo.Arguments = "leave " + idroom;
-                    Process.Start(processInfo);
-                }
-
-                //
                 roomP.Enabled = true;
                 rooms.Clear();
                 listRooms.Items.Clear();
@@ -657,33 +535,5 @@ namespace DotA_Allstars
         {
             Process.Start(e.LinkText);
         }
-
-        /*static void Connect(String server, String message)
-        {
-            try
-            {
-                Int32 port = 13000;
-                TcpClient client = new TcpClient(server, port);
-                Byte[] data = System.Text.Encoding.ASCII.GetBytes(message);
-                NetworkStream stream = client.GetStream();
-                stream.Write(data, 0, data.Length);
-                Console.WriteLine(message);
-                data = new Byte[256];
-                
-        // String to store the response ASCII representation.
-        // Read the first batch of the TcpServer response bytes.
-                Int32 bytes = stream.Read(data, 0, data.Length);
-                responseData = System.Text.Encoding.ASCII.GetString(data, 0, bytes);
-                
-
-                // Close everything.
-                stream.Close();
-                client.Close();
-            }
-            catch
-            {
-                responseData = "0";
-            } 
-        }*/
     }
 }
