@@ -10,6 +10,7 @@ using System.Xml;
 using System.IO;
 using System.Text.RegularExpressions;
 using AutoUpdaterDotNET;
+using Newtonsoft.Json;
 
 namespace DotA_Allstars
 {
@@ -101,8 +102,19 @@ namespace DotA_Allstars
         public static string password;
         public static string path;
         public static string tagetW;
-        OpenFileDialog opf = new OpenFileDialog();
         XmlDocument paket = new XmlDocument();
+
+        //Error code
+        public class statusC
+        {
+            public int statusCode { get; set; }
+        }
+
+        //Done Connect
+        public class Done
+        {
+            public bool success { get; set; }
+        }
 
         private void LoginBt_Click(object sender, EventArgs e)
         {
@@ -122,7 +134,7 @@ namespace DotA_Allstars
 
                 var values = new Dictionary<string, string>
                 {
-                   { "name", usname.Text },
+                   { "username", usname.Text },
                    { "password", paswd.Text }
                 };
 
@@ -130,9 +142,41 @@ namespace DotA_Allstars
                 try
                 {
                     Task.Run(async () => {
-                        var response = await connect.PostAsync("https://mobaz-auth.glitch.me/login", content);
+                        var response = await connect.PostAsync("http://user-man.mobavietnam.com/mobaz-login", content);
                         var responseString = await response.Content.ReadAsStringAsync();
-                        if (responseString == "OK")
+                        var data = JsonConvert.DeserializeObject<Done[]>("[" + responseString + "]");
+                        var error = JsonConvert.DeserializeObject<statusC[]>("[" + responseString + "]");
+                        if (data[0].success == false)
+                        {
+                            switch (error[0].statusCode)
+                            {
+                                case 400:
+                                    Invoke((MethodInvoker)delegate
+                                    {
+                                        sttLg.Text = "Tên đăng nhập hoặc mật khẩu sai.";
+                                        loginBt.Visible = true;
+                                        loginBt.Visible = true;
+                                        usname.Enabled = true;
+                                        paswd.Enabled = true;
+                                        remember.Enabled = true;
+                                        reglink.Enabled = true;
+                                    });
+                                    break;
+                                case 500:
+                                    Invoke((MethodInvoker)delegate
+                                    {
+                                        sttLg.Text = "Lỗi máy chủ.";
+                                        loginBt.Visible = true;
+                                        loginBt.Visible = true;
+                                        usname.Enabled = true;
+                                        paswd.Enabled = true;
+                                        remember.Enabled = true;
+                                        reglink.Enabled = true;
+                                    });
+                                    break;
+                            }
+                        }
+                        else
                         {
                             Invoke((MethodInvoker)delegate
                             {
@@ -165,17 +209,6 @@ namespace DotA_Allstars
                                 th.Start();
                             });
                         }
-                        else
-                            Invoke((MethodInvoker)delegate
-                            {
-                                sttLg.Text = "Tên đăng nhập hoặc mật khẩu sai.";
-                                loginBt.Visible = true;
-                                loginBt.Visible = true;
-                                usname.Enabled = true;
-                                paswd.Enabled = true;
-                                remember.Enabled = true;
-                                reglink.Enabled = true;
-                            });
                     });
                 }
                 catch

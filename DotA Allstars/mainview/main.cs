@@ -30,7 +30,8 @@ namespace DotA_Allstars
             GetRooms();
         }
         public int port = 6667;
-        string ip = "103.56.157.165";
+        string ip = "irc.pvpgn.mobavietnam.com";
+        string ServerPass = "b3APQdYe6ePwhc8X";
         public static string name;
         Dictionary<string, string> rooms = new Dictionary<string, string>();
         private const int cGrip = 16;
@@ -132,7 +133,7 @@ namespace DotA_Allstars
 
         private void DoConnect()
         {
-            client = new IrcClient(ip.Trim(), port, false);
+            client = new IrcClient(ip.Trim(), port, false, ServerPass);
             AddEvents();
             client.Nick = name.Trim();
             rtbOutput.Clear(); // in case they reconnect and have old stuff there

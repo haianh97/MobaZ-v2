@@ -6,6 +6,7 @@ using System.Windows.Forms;
 using System.Threading;
 using System.Net.Http;
 using System.Text.RegularExpressions;
+using Newtonsoft.Json;
 
 namespace DotA_Allstars.mainview
 {
@@ -27,6 +28,18 @@ namespace DotA_Allstars.mainview
         public int a;
         public int b;
         private static readonly HttpClient client = new HttpClient();
+
+        //Error code
+        public class statusC
+        {
+            public int statusCode { get; set; }
+        }
+
+        //Done Connect
+        public class Done
+        {
+            public bool success { get; set; }
+        }
 
         private void Signup_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -68,33 +81,51 @@ namespace DotA_Allstars.mainview
 
                 var values = new Dictionary<string, string>
                 {
-                   { "name", usname.Text },
+                   { "username", usname.Text },
                    { "password", repasswd.Text }
                 };
 
                 var content = new FormUrlEncodedContent(values);
 
                 Task.Run(async () => {
-                    var response = await client.PostAsync("https://mobaz-auth.glitch.me/create", content);
+                    var response = await client.PostAsync("http://user-man.mobavietnam.com/mobaz-login/signup", content);
                     var responseString = await response.Content.ReadAsStringAsync();
-                    if (responseString == "created")
+
+                    var data = JsonConvert.DeserializeObject<Done[]>("[" + responseString + "]");
+                    var error = JsonConvert.DeserializeObject<statusC[]>("[" + responseString + "]");
+                    if (data[0].success == false)
+                    {
+                        switch (error[0].statusCode)
+                        {
+                            case 400:
+                                Invoke((MethodInvoker)delegate
+                                {
+                                    sttR.Text = "Tên đăng nhập đã tồn tại.";
+                                    signupBt.Visible = true;
+                                    this.Enabled = true;
+                                });
+                                break;
+                            case 500:
+                                Invoke((MethodInvoker)delegate
+                                {
+                                    sttR.Text = "Lỗi máy chủ.";
+                                    signupBt.Visible = true;
+                                    this.Enabled = true;
+                                });
+                                break;
+                        }
+                    }
+                    else
                     {
                         Invoke((MethodInvoker)delegate
                         {
                             if (MessageBox.Show("Đăng kí thành công!", "MobaZ", MessageBoxButtons.OK, MessageBoxIcon.Exclamation) == DialogResult.OK)
                             {
-                                
+
                                 this.Close();
                             }
                         });
                     }
-                    else
-                        Invoke((MethodInvoker)delegate
-                        {
-                            sttR.Text = "Tên đăng nhập đã tồn tại.";
-                            signupBt.Visible = true;
-                            this.Enabled = true;
-                        });
                 });
             }
         }
