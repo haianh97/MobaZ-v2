@@ -466,11 +466,13 @@ namespace DotA_Allstars
                 else
                 {
                     Process RunGame = new Process();
+                    RunGame.StartInfo.UseShellExecute = false;
+                    RunGame.StartInfo.WorkingDirectory = Path.GetDirectoryName(pathwar3.Text);
                     RunGame.StartInfo.FileName = Path.GetDirectoryName(pathwar3.Text) + "\\w3l.exe";
                     if (window.Checked == true)
                         RunGame.StartInfo.Arguments = string.Concat(" -window");
                     RunGame.Start();
-                    //NameC();
+                    
                     this.WindowState = FormWindowState.Minimized;
                 }
             }

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Threading.Tasks;
+using System.Drawing;
 using System.Windows.Forms;
 using System.Net.Http;
 using DotA_Allstars.mainview;
@@ -139,9 +139,10 @@ namespace DotA_Allstars
                 };
 
                 var content = new FormUrlEncodedContent(values);
-                try
-                {
-                    Task.Run(async () => {
+                
+                Task.Run(async () => {
+                    try
+                    {
                         var response = await connect.PostAsync("http://user-man.mobavietnam.com/mobaz-login", content);
                         var responseString = await response.Content.ReadAsStringAsync();
                         var data = JsonConvert.DeserializeObject<Done[]>("[" + responseString + "]");
@@ -209,12 +210,43 @@ namespace DotA_Allstars
                                 th.Start();
                             });
                         }
-                    });
-                }
-                catch
-                {
-                    MessageBox.Show("Kết nối với máy chủ bị gián đoạn");
-                }
+                    }
+                    catch
+                    {
+                        ///MessageBox.Show("Kết nối với máy chủ bị gián đoạn");
+                        Invoke((MethodInvoker)delegate
+                        {
+                            main.name = usname.Text;
+                            paket.Load("paket.xml");
+                            XmlNode rem = paket.SelectSingleNode("settings/remem");
+                            XmlNode us = paket.SelectSingleNode("settings/us");
+                            XmlNode pw = paket.SelectSingleNode("settings/pw");
+                            XmlNode save = paket.SelectSingleNode("settings/war3");
+                            XmlNode taget = paket.SelectSingleNode("settings/taget");
+                            path = save.Attributes[0].Value;
+                            tagetW = taget.Attributes[0].Value;
+                            if (remember.Checked == true)
+                            {
+                                rem.Attributes[0].Value = "1";
+                                us.Attributes[0].Value = usname.Text;
+                                pw.Attributes[0].Value = paswd.Text;
+                                paket.Save("paket.xml");
+                            }
+                            else
+                            {
+                                rem.Attributes[0].Value = "0";
+                                us.Attributes[0].Value = "";
+                                pw.Attributes[0].Value = "";
+                                paket.Save("paket.xml");
+                            }
+                            this.Close();
+                            Thread th = new Thread(NewFormMain);
+                            th.SetApartmentState(ApartmentState.STA);
+                            th.Start();
+                        });
+                    }
+                });
+                
                 
             }
         }
@@ -268,7 +300,7 @@ namespace DotA_Allstars
         
         private void Usname_KeyPress(object sender, KeyPressEventArgs e)
         {
-            Regex regex = new Regex("[^0-9a-zA-Z.^-^_-`\b-]+");
+            Regex regex = new Regex("[^0-9a-zA-Z\b-]+");
             e.Handled = regex.IsMatch(e.KeyChar.ToString());
         }
     }

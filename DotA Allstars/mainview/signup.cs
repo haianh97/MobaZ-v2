@@ -162,7 +162,7 @@ namespace DotA_Allstars.mainview
 
         private void Usname_KeyPress(object sender, KeyPressEventArgs e)
         {
-            Regex regex = new Regex("[^0-9a-zA-Z.^-^_-`\b-]+");
+            Regex regex = new Regex("[^0-9a-zA-Z\b-]+");
             e.Handled = regex.IsMatch(e.KeyChar.ToString());
         }
 

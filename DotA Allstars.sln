@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.29009.5
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotA Allstars", "DotA Allstars\DotA Allstars.csproj", "{93A9AD08-A734-4D31-9418-4DF946335D90}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup MobaZ", "Setup MobaZ\Setup MobaZ.vdproj", "{A3E936BF-4CE1-4A55-909B-DAD8294DEF06}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,8 @@ Global
 		{93A9AD08-A734-4D31-9418-4DF946335D90}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{93A9AD08-A734-4D31-9418-4DF946335D90}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{93A9AD08-A734-4D31-9418-4DF946335D90}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A3E936BF-4CE1-4A55-909B-DAD8294DEF06}.Debug|Any CPU.ActiveCfg = Debug
+		{A3E936BF-4CE1-4A55-909B-DAD8294DEF06}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
