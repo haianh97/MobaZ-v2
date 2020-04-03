@@ -98,6 +98,12 @@
     <Compile Include="mainview\login.Designer.cs">
       <DependentUpon>login.cs</DependentUpon>
     </Compile>
+    <Compile Include="mainview\notice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="mainview\notice.Designer.cs">
+      <DependentUpon>notice.cs</DependentUpon>
+    </Compile>
     <Compile Include="mainview\signup.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,6 +117,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="mainview\main.resx">
       <DependentUpon>main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="mainview\notice.resx">
+      <DependentUpon>notice.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="mainview\signup.resx">
       <DependentUpon>signup.cs</DependentUpon>

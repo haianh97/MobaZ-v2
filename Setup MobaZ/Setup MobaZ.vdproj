@@ -93,12 +93,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_CE3CD8B2AD48497997B6BB075A12664D"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_CEB037F0A1D70A68CB0D7026FA743B75"
         "OwnerKey" = "8:_A394FBBA6A1D4F74BCA4A979B1E797B8"
         "MsmSig" = "8:_UNDEFINED"
@@ -113,12 +107,6 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_A394FBBA6A1D4F74BCA4A979B1E797B8"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_CE3CD8B2AD48497997B6BB075A12664D"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -206,6 +194,14 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
+                    }
+                }
             }
         }
         "Release"
@@ -230,6 +226,14 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
+                    }
+                }
             }
         }
     }
@@ -528,37 +532,6 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_CE3CD8B2AD48497997B6BB075A12664D"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:System.Net.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
-                "ScatterAssemblies"
-                {
-                    "_CE3CD8B2AD48497997B6BB075A12664D"
-                    {
-                    "Name" = "8:System.Net.Http.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:C:\\Program Files (x86)\\Reference Assemblies\\Microsoft\\Framework\\.NETFramework\\v4.5.2\\System.Net.Http.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_F42AFE641B6B435A8CEA2D9A6315BEC7"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_CEB037F0A1D70A68CB0D7026FA743B75"
             {
             "AssemblyRegister" = "3:1"
@@ -678,7 +651,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Setup MobaZ"
         "ProductCode" = "8:{28458CDB-558A-4BDD-805B-1E1E35C043FF}"
-        "PackageCode" = "8:{742EB242-D479-4FD2-9480-612F2EBA5631}"
+        "PackageCode" = "8:{DCABAEF8-2376-4E83-A69F-E6D199AC3908}"
         "UpgradeCode" = "8:{2C0E187D-07A9-4D96-99AA-36A334678AE7}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"

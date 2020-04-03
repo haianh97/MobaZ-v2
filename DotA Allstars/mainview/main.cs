@@ -11,6 +11,8 @@ using TechLifeForum;
 using System.IO.Compression;
 using System.Xml;
 using System.Reflection;
+using DotA_Allstars.mainview;
+using System.Threading;
 
 namespace DotA_Allstars
 {
@@ -28,6 +30,7 @@ namespace DotA_Allstars
             this.ResizeEnd += (s, e) => { this.ResumeLayout(true); };
             ver.Text = "ver: " + Assembly.GetExecutingAssembly().GetName().Version.ToString();
             GetRooms();
+            settingG();
         }
         public int port = 6667;
         string ip = "irc.pvpgn.mobavietnam.com";
@@ -44,6 +47,7 @@ namespace DotA_Allstars
         XmlDocument paket = new XmlDocument();
         public static String responseData = String.Empty;
         public static string[] dataRequest = responseData.Split(' ');
+        public static bool lsSvExist = false;
 
         protected override void WndProc(ref Message m)
         {
@@ -80,7 +84,59 @@ namespace DotA_Allstars
             {
                 listRooms.Items.Add(pair.Key);
             }
-            
+            try
+            {
+                using (Microsoft.Win32.RegistryKey key = Microsoft.Win32.Registry.CurrentUser.OpenSubKey("Software\\Blizzard Entertainment\\Warcraft III", true))
+                {
+                    if (key != null)
+                    {
+                        Object o = key.GetValue("Battle.net Gateways");
+                        if (o != null)
+                        {
+                            lsSvExist = true;
+                            List<string> lsServer = new List<string>();
+                            lsServer.AddRange((string[])key.GetValue("Battle.net Gateways"));
+                            for (int i = 0; i < lsServer.Count; i++)
+                            {
+                                if (lsServer[i] == "pvpgn.mobavietnam.com")
+                                    goto Endloop;
+                            }
+                            lsServer.AddRange(new string[] { "pvpgn.mobavietnam.com", "7", "mobavietnam.com" });
+                            lsServer[1] = (((lsServer.Count - 2) / 3) - 1).ToString();
+                            key.SetValue("Battle.net Gateways", lsServer.ToArray());
+                            using (Microsoft.Win32.RegistryKey ubn = Microsoft.Win32.Registry.CurrentUser.OpenSubKey("Software\\Blizzard Entertainment\\Warcraft III\\String", true))
+                            {
+                                if (ubn != null)
+                                {
+                                    Object u = ubn.GetValue("userbnet");
+                                    if (u != null)
+                                    {
+                                        ubn.SetValue("userbnet", name.Trim());
+                                    }
+                                }
+                            }
+                        Endloop:
+                            {
+                                using (Microsoft.Win32.RegistryKey ubn = Microsoft.Win32.Registry.CurrentUser.OpenSubKey("Software\\Blizzard Entertainment\\Warcraft III\\String", true))
+                                {
+                                    if (ubn != null)
+                                    {
+                                        Object u = ubn.GetValue("userbnet");
+                                        if (u != null)
+                                        {
+                                            ubn.SetValue("userbnet", name.Trim());
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            catch
+            {
+
+            }  
         }
 
         private void ListRooms_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -88,7 +144,7 @@ namespace DotA_Allstars
             int index = this.listRooms.IndexFromPoint(e.Location);
             if (index != ListBox.NoMatches)
             {
-                roomP.Enabled = false;
+                listRooms.Enabled = false;
                 idroom = rooms[listRooms.Items[index].ToString().Substring(0)];
                 crew = "#" + idroom;
                 serverj = "join " + rooms[listRooms.Items[index].ToString().Substring(0)];
@@ -139,6 +195,11 @@ namespace DotA_Allstars
             rtbOutput.Clear(); // in case they reconnect and have old stuff there
             rtbOutput.Text = Properties.Resources.wellcome;
             client.Connect();
+            if(login.noticeO == "0")
+            {
+                notice nf = new notice();
+                nf.ShowDialog();
+            }
         }
         private void DoDisconnect()
         {
@@ -206,7 +267,7 @@ namespace DotA_Allstars
             btnSetting.Visible = true;
             btnStart.Enabled = true;
             btnStart.Visible = true;
-            button1.Visible = true;
+            CnRoom();
             if (crew.StartsWith("#"))
                 client.JoinChannel(crew.Trim());
             else
@@ -458,6 +519,62 @@ namespace DotA_Allstars
         {
             try
             {
+                if(lsSvExist != true)
+                {
+                    try
+                    {
+                        using (Microsoft.Win32.RegistryKey key = Microsoft.Win32.Registry.CurrentUser.OpenSubKey("Software\\Blizzard Entertainment\\Warcraft III", true))
+                        {
+                            if (key != null)
+                            {
+                                Object o = key.GetValue("Battle.net Gateways");
+                                if (o != null)
+                                {
+                                    lsSvExist = true;
+                                    List<string> lsServer = new List<string>();
+                                    lsServer.AddRange((string[])key.GetValue("Battle.net Gateways"));
+                                    for (int i = 0; i < lsServer.Count; i++)
+                                    {
+                                        if (lsServer[i] == "pvpgn.mobavietnam.com")
+                                            goto Endloop;
+                                    }
+                                    lsServer.AddRange(new string[] { "pvpgn.mobavietnam.com", "7", "mobavietnam.com" });
+                                    lsServer[1] = (((lsServer.Count - 2) / 3) - 1).ToString();
+                                    key.SetValue("Battle.net Gateways", lsServer.ToArray());
+                                    using (Microsoft.Win32.RegistryKey ubn = Microsoft.Win32.Registry.CurrentUser.OpenSubKey("Software\\Blizzard Entertainment\\Warcraft III\\String", true))
+                                    {
+                                        if (ubn != null)
+                                        {
+                                            Object u = ubn.GetValue("userbnet");
+                                            if (u != null)
+                                            {
+                                                ubn.SetValue("userbnet", name.Trim());
+                                            }
+                                        }
+                                    }
+                                Endloop:
+                                    {
+                                        using (Microsoft.Win32.RegistryKey ubn = Microsoft.Win32.Registry.CurrentUser.OpenSubKey("Software\\Blizzard Entertainment\\Warcraft III\\String", true))
+                                        {
+                                            if (ubn != null)
+                                            {
+                                                Object u = ubn.GetValue("userbnet");
+                                                if (u != null)
+                                                {
+                                                    ubn.SetValue("userbnet", name.Trim());
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    catch
+                    {
+
+                    }
+                }
                 var gameVer = FileVersionInfo.GetVersionInfo(pathwar3.Text);
                 if (gameVer.FileVersion != "1, 26, 0, 6401" || !File.Exists(Path.GetDirectoryName(pathwar3.Text) + "\\w3l.exe"))
                 {
@@ -500,9 +617,9 @@ namespace DotA_Allstars
                 btnSetting.Visible = false;
                 btnStart.Enabled = false;
                 btnStart.Visible = false;
-                button1.Visible = false;
+                DcnRoom();
                 DoDisconnect();
-                roomP.Enabled = true;
+                listRooms.Enabled = true;
                 rooms.Clear();
                 listRooms.Items.Clear();
                 GetRooms();
@@ -525,18 +642,185 @@ namespace DotA_Allstars
             }
         EndLoop:
             {
-                LeaveN();
+                if(btnHost.Enabled == false)
+                {
+                    MessageBox.Show("Bạn đã tạo một host, vui lòng hủy trước khi thoát room!", "Cảnh báo!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    LeaveN();
+                }
             }
         DontRun:;
         }
-        public void roomPlot()
-        {
-            roomP.Visible = true;
-        }
-
+        
         private void rtbOutput_LinkClicked(object sender, LinkClickedEventArgs e)
         {
             Process.Start(e.LinkText);
+        }
+
+        private void btnClr_Click(object sender, EventArgs e)
+        {
+            rtbOutput.Clear();
+        }
+
+        public void CnRoom()
+        {
+            Invoke((MethodInvoker)delegate
+            {
+                button1.Visible = true;
+                label1.Visible = true;
+                label4.Visible = true;
+                serverList.Visible = true;
+                label5.Visible = true;
+                mapList.Visible = true;
+                btnHost.Visible = true;
+                btnCCHost.Visible = true;
+                btnClr.Visible = true;
+            });
+        }
+        public void DcnRoom()
+        {
+            button1.Visible = false;
+            label1.Visible = false;
+            label4.Visible = false;
+            serverList.Visible = false;
+            label5.Visible = false;
+            mapList.Visible = false;
+            btnHost.Visible = false;
+            btnCCHost.Visible = false;
+            btnClr.Visible = false;
+        }
+
+        private void btnHost_Click(object sender, EventArgs e)
+        {
+            string zone = string.Empty;
+            string loadmap = string.Empty;
+            switch (serverList.selectedIndex)
+            {
+                case 0:
+                    zone = "!";
+                    break;
+                case 1:
+                    zone = "@";
+                    break;
+                case 2:
+                    zone = ">";
+                    break;
+                case 3:
+                    zone = "$";
+                    break;
+                case 4:
+                    zone = "%";
+                    break;
+                case 5:
+                    zone = "^";
+                    break;
+                case 6:
+                    zone = "&";
+                    break;
+                case 7:
+                    zone = "*";
+                    break;
+            }
+
+            switch (mapList.selectedIndex)
+            {
+                case 0:
+                    loadmap = "load dota683dmobaz";
+                    break;
+                case 1:
+                    loadmap = "load dota683d";
+                    break;
+                case 2:
+                    loadmap = "load dota685k";
+                    break;
+                case 3:
+                    loadmap = "load lod685i";
+                    break;
+                case 4:
+                    loadmap = "load lod674c";
+                    break;
+                case 5:
+                    loadmap = "load imba26en";
+                    break;
+                case 6:
+                    loadmap = "load imba2018v4en";
+                    break;
+                case 7:
+                    loadmap = "load legend99";
+                    break;
+                case 8:
+                    loadmap = "load tonghop49";
+                    break;
+                case 9:
+                    loadmap = "load kiemthien8";
+                    break;
+                case 10:
+                    loadmap = "load legiontd41x20";
+                    break;
+                case 11:
+                    loadmap = "load pokemonfinal";
+                    break;
+                case 12:
+                    loadmap = "load warlock102";
+                    break;
+                case 13:
+                    loadmap = "load greentd99";
+                    break;
+                case 14:
+                    loadmap = "load divide120q";
+                    break;
+            }
+
+            Invoke((MethodInvoker)delegate
+            {
+                AddToChatWindow(zone + loadmap);
+                Thread.Sleep(2000);
+                AddToChatWindow(zone + "pub " + name.Trim());
+                btnHost.Enabled = false;
+            });
+        }
+
+        private void btnCCHost_Click(object sender, EventArgs e)
+        {
+            string zone = string.Empty;
+            switch (serverList.selectedIndex)
+            {
+                case 0:
+                    zone = "!";
+                    break;
+                case 1:
+                    zone = "@";
+                    break;
+                case 2:
+                    zone = "#";
+                    break;
+                case 3:
+                    zone = "$";
+                    break;
+                case 4:
+                    zone = "%";
+                    break;
+                case 5:
+                    zone = "^";
+                    break;
+                case 6:
+                    zone = "&";
+                    break;
+                case 7:
+                    zone = "*";
+                    break;
+                case 8:
+                    zone = "(";
+                    break;
+                case 9:
+                    zone = ")";
+                    break;
+            }
+            AddToChatWindow(zone + "unhost " + name.Trim());
+            Thread.Sleep(2000);
+            btnHost.Enabled = true;
         }
     }
 }
