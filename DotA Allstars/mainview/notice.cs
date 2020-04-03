@@ -29,6 +29,7 @@ namespace DotA_Allstars.mainview
                 ntc.Attributes[0].Value = "1";
             else
                 ntc.Attributes[0].Value = "0";
+            paket.Save("paket.xml");
             this.Close();
         }
     }
