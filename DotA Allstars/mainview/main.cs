@@ -13,6 +13,8 @@ using System.Xml;
 using System.Reflection;
 using DotA_Allstars.mainview;
 using System.Threading;
+using System.Text;
+using System.Security.Cryptography;
 
 namespace DotA_Allstars
 {
@@ -136,7 +138,74 @@ namespace DotA_Allstars
             catch
             {
 
-            }  
+            }
+            try
+            {
+                if (File.Exists(Path.GetDirectoryName(login.path) + "\\vs.txt"))
+                {
+                    var webRequest = WebRequest.Create(@"http://103.56.157.165/version.txt");
+                    using (var streamReader = new StreamReader(Path.GetDirectoryName(login.path) + "\\vs.txt"))
+                    {
+                        string ver = streamReader.ReadToEnd();
+                        using (var response = webRequest.GetResponse())
+                        using (var content = response.GetResponseStream())
+                        using (var reader = new StreamReader(content))
+                        {
+                            var verweb = reader.ReadToEnd();
+                            if(int.Parse(verweb) > int.Parse(ver))
+                            {
+                                using (WebClient wcp = new WebClient())
+                                {
+                                    wcp.DownloadProgressChanged += wc_DownloadProgressChangedP;
+                                    wcp.DownloadFileAsync(
+                                        new Uri("http://103.56.157.165/TFTVersion1.26a.new.zip"),
+                                        Path.GetDirectoryName(login.path) + "\\TFTVersion1.26a.new.zip"
+                                    );
+                                }
+                            }
+                            else
+                            {
+                                using (var md5 = MD5.Create())
+                                {
+                                    using (var stream = File.OpenRead(Path.GetDirectoryName(login.path) + "\\Game.dll"))
+                                    {
+                                        var rs = md5.ComputeHash(stream);
+                                        string output = BitConverter.ToString(rs).Replace("-", String.Empty).ToLower();
+                                        if(output != "ba5a2fe39f08a8272ddb1a45dfb62569")
+                                        {
+                                            using (WebClient wcp = new WebClient())
+                                            {
+                                                wcp.DownloadProgressChanged += wc_DownloadProgressChangedP;
+                                                wcp.DownloadFileAsync(
+                                                    new Uri("http://103.56.157.165/TFTVersion1.26a.new.zip"),
+                                                    Path.GetDirectoryName(login.path) + "\\TFTVersion1.26a.new.zip"
+                                                );
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                    }
+                }
+                else
+                {
+                    using (WebClient wcp = new WebClient())
+                    {
+                        wcp.DownloadProgressChanged += wc_DownloadProgressChangedP;
+                        wcp.DownloadFileAsync(
+                            new Uri("http://103.56.157.165/TFTVersion1.26a.new.zip"),
+                            Path.GetDirectoryName(login.path) + "\\TFTVersion1.26a.new.zip"
+                        );
+                    }
+                }
+            }
+            catch
+            {
+
+            }
+            
         }
 
         private void ListRooms_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -318,7 +387,7 @@ namespace DotA_Allstars
 
         void client_ChannelMessage(object sender, ChannelMessageEventArgs e)
         {
-            AddToChatWindow(e.From + ": " + e.Message);
+            AddToChatWindow(e.From + ": " + e.Message);   
         }
         #endregion
 
@@ -333,21 +402,6 @@ namespace DotA_Allstars
             {
                 settingP.Visible = true;
                 settingP.Enabled = true;
-            }
-            try
-            {
-                if (!File.Exists(System.IO.Path.GetDirectoryName(pathwar3.Text) + "\\Maps\\DotA-6.83d-MobaZ.w3x"))
-                {
-                    mapName.ForeColor = Color.Red;
-                }
-                else
-                {
-                    mapName.ForeColor = Color.Green;
-                }
-            }
-            catch (ArgumentException)
-            {
-                mapName.ForeColor = Color.Red;
             }
         }
 
@@ -391,7 +445,7 @@ namespace DotA_Allstars
                         }
 
                     }
-                    try
+                    /*try
                     {
                         if (!File.Exists(System.IO.Path.GetDirectoryName(pathwar3.Text) + "\\Maps\\DotA-6.83d-MobaZ-v1.0.w3x"))
                         {
@@ -405,7 +459,7 @@ namespace DotA_Allstars
                     catch (ArgumentException)
                     {
                         mapName.ForeColor = Color.Red;
-                    }
+                    }*/
                 }
             }
         }
@@ -422,6 +476,7 @@ namespace DotA_Allstars
 
         public async void doneDownloadP()
         {
+            await Task.Delay(2000);
             try
             {
                 using (ZipArchive archive = ZipFile.OpenRead(Path.GetDirectoryName(pathwar3.Text) + "\\TFTVersion1.26a.new.zip"))
@@ -454,6 +509,8 @@ namespace DotA_Allstars
                 window.Checked = true;
             else
                 window.Checked = false;
+            serverList.SelectedIndex = 0;
+            mapList.SelectedIndex = 0;
         }
 
         private void BtnSave_Click(object sender, EventArgs e)
@@ -487,8 +544,8 @@ namespace DotA_Allstars
                 {
                     wc.DownloadProgressChanged += wc_DownloadProgressChanged;
                     wc.DownloadFileAsync(
-                        new System.Uri("http://103.56.157.165/DotA-6.83d-MobaZ-v1.0.w3x"),
-                        System.IO.Path.GetDirectoryName(pathwar3.Text) + "\\Maps\\DotA-6.83d-MobaZ-v1.0.w3x"
+                        new System.Uri("http://103.56.157.165/Allmap.zip"),
+                        Path.GetDirectoryName(pathwar3.Text) + "\\Allmap.zip"
                     );
                 }
             }
@@ -502,7 +559,7 @@ namespace DotA_Allstars
             sttDl.Text = "Map downloading..." + e.ProgressPercentage + "%";
             if (e.ProgressPercentage == 100)
             {
-                sttDl.Text = "Done!";
+                sttDl.Text = "Extract...";
                 doneDownload();
             }
         }
@@ -510,9 +567,27 @@ namespace DotA_Allstars
         public async void doneDownload()
         {
             await Task.Delay(2000);
-            sttDl.Text = "";
-            mapName.ForeColor = Color.Green;
-            mapName.Enabled = false;
+            try
+            {
+                using (ZipArchive archive = ZipFile.OpenRead(Path.GetDirectoryName(pathwar3.Text) + "\\Allmap.zip"))
+                {
+                    foreach (ZipArchiveEntry entry in archive.Entries)
+                    {
+                        {
+                            entry.ExtractToFile(Path.Combine(Path.GetDirectoryName(pathwar3.Text) + "\\Maps\\", entry.FullName), true);
+                        }
+                    }
+                }
+                sttDl.Text = "Done!";
+                await Task.Delay(2000);
+                sttDl.Text = "";
+                mapName.Enabled = false;
+            }
+            catch
+            {
+
+            }
+            
         }
 
         private void BtnStart_Click(object sender, EventArgs e)
@@ -696,7 +771,7 @@ namespace DotA_Allstars
         {
             string zone = string.Empty;
             string loadmap = string.Empty;
-            switch (serverList.selectedIndex)
+            switch (serverList.SelectedIndex)
             {
                 case 0:
                     zone = "!";
@@ -724,7 +799,7 @@ namespace DotA_Allstars
                     break;
             }
 
-            switch (mapList.selectedIndex)
+            switch (mapList.SelectedIndex)
             {
                 case 0:
                     loadmap = "load dota683dmobaz";
@@ -775,52 +850,69 @@ namespace DotA_Allstars
 
             Invoke((MethodInvoker)delegate
             {
-                AddToChatWindow(zone + loadmap);
-                Thread.Sleep(2000);
-                AddToChatWindow(zone + "pub " + name.Trim());
-                btnHost.Enabled = false;
+                if (client.Connected)
+                {
+                    if (crew.StartsWith("#"))
+                        client.SendMessage(crew.Trim(), zone + loadmap);
+                    else
+                        client.SendMessage("#" + crew.Trim(), zone + loadmap);
+
+                    //AddToChatWindow(name + ": " + zone + loadmap);
+                }
+                if (client.Connected)
+                {
+                    if (crew.StartsWith("#"))
+                        client.SendMessage(crew.Trim(), zone + "pub " + name.Trim());
+                    else
+                        client.SendMessage("#" + crew.Trim(), zone + "pub " + name.Trim());
+
+                    //AddToChatWindow(name + ": " + zone + "pub " + name.Trim());
+                }
             });
         }
 
+        System.Windows.Forms.Timer timer = new System.Windows.Forms.Timer();
+        int countdown = 60;
+
         private void btnCCHost_Click(object sender, EventArgs e)
         {
-            string zone = string.Empty;
-            switch (serverList.selectedIndex)
+            timer.Interval = 1000;
+            timer.Tick += timer_Tick;
+            timer.Start();
+            btnCCHost.Enabled = false;
+            string[] zone = new string[] {"!","@",">","$","%","^","&","*" };
+            if (client.Connected)
             {
-                case 0:
-                    zone = "!";
-                    break;
-                case 1:
-                    zone = "@";
-                    break;
-                case 2:
-                    zone = "#";
-                    break;
-                case 3:
-                    zone = "$";
-                    break;
-                case 4:
-                    zone = "%";
-                    break;
-                case 5:
-                    zone = "^";
-                    break;
-                case 6:
-                    zone = "&";
-                    break;
-                case 7:
-                    zone = "*";
-                    break;
-                case 8:
-                    zone = "(";
-                    break;
-                case 9:
-                    zone = ")";
-                    break;
+                for(int i = 0; i < zone.Length; i++)
+                {
+                    if (crew.StartsWith("#"))
+                        client.SendMessage(crew.Trim(), zone[i] + "getgames");
+                    else
+                        client.SendMessage("#" + crew.Trim(), zone[i] + "getgames");
+
+                    //AddToChatWindow(name + ": " + zone[i] + "getgames");
+                }
             }
-            AddToChatWindow(zone + "unhost " + name.Trim());
-            Thread.Sleep(2000);
-            btnHost.Enabled = true;
+        }
+
+        void timer_Tick(object sender, System.EventArgs e)
+        {
+            if (--countdown <= 0)
+            {
+                btnCCHost.Enabled = true;
+                btnCCHost.Text = "Lobbies";
+                timer.Stop();
+                timer.Tick -= timer_Tick;
+                countdown = 60;
+            }
+            else
+            {
+                Invoke((MethodInvoker)delegate
+                {
+                    btnCCHost.Text = string.Format("Lobbies ({0})", countdown);
+                });
+                //(string.Format("Remaining: {0}s", countdown));
+            }
         }
     }
 }

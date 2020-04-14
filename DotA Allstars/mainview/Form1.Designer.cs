@@ -29,18 +29,18 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(main));
-            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties1 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties2 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties3 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties4 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties5 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties6 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties7 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties8 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties9 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties10 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties11 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties12 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties73 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties74 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties75 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties76 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties77 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties78 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties79 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties80 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties81 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties82 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties83 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties84 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pTop = new System.Windows.Forms.Panel();
@@ -64,7 +64,6 @@
             this.listRooms = new System.Windows.Forms.ListBox();
             this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.roomP = new System.Windows.Forms.Panel();
-            this.mapList = new Bunifu.Framework.UI.BunifuDropdown();
             this.label5 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnClr = new System.Windows.Forms.Button();
@@ -91,7 +90,8 @@
             this.p10 = new System.Windows.Forms.Panel();
             this.p9 = new System.Windows.Forms.Panel();
             this.bgrroom = new System.Windows.Forms.PictureBox();
-            this.serverList = new Bunifu.Framework.UI.BunifuDropdown();
+            this.serverList = new System.Windows.Forms.ComboBox();
+            this.mapList = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnSetting)).BeginInit();
@@ -189,26 +189,26 @@
             this.searchPing.Modified = false;
             this.searchPing.Multiline = false;
             this.searchPing.Name = "searchPing";
-            stateProperties1.BorderColor = System.Drawing.Color.DodgerBlue;
-            stateProperties1.FillColor = System.Drawing.Color.Empty;
-            stateProperties1.ForeColor = System.Drawing.Color.Empty;
-            stateProperties1.PlaceholderForeColor = System.Drawing.Color.Empty;
-            this.searchPing.OnActiveState = stateProperties1;
-            stateProperties2.BorderColor = System.Drawing.Color.Empty;
-            stateProperties2.FillColor = System.Drawing.Color.White;
-            stateProperties2.ForeColor = System.Drawing.Color.Empty;
-            stateProperties2.PlaceholderForeColor = System.Drawing.Color.Silver;
-            this.searchPing.OnDisabledState = stateProperties2;
-            stateProperties3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
-            stateProperties3.FillColor = System.Drawing.Color.Empty;
-            stateProperties3.ForeColor = System.Drawing.Color.Empty;
-            stateProperties3.PlaceholderForeColor = System.Drawing.Color.Empty;
-            this.searchPing.OnHoverState = stateProperties3;
-            stateProperties4.BorderColor = System.Drawing.Color.Silver;
-            stateProperties4.FillColor = System.Drawing.Color.White;
-            stateProperties4.ForeColor = System.Drawing.Color.Empty;
-            stateProperties4.PlaceholderForeColor = System.Drawing.Color.Empty;
-            this.searchPing.OnIdleState = stateProperties4;
+            stateProperties73.BorderColor = System.Drawing.Color.DodgerBlue;
+            stateProperties73.FillColor = System.Drawing.Color.Empty;
+            stateProperties73.ForeColor = System.Drawing.Color.Empty;
+            stateProperties73.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.searchPing.OnActiveState = stateProperties73;
+            stateProperties74.BorderColor = System.Drawing.Color.Empty;
+            stateProperties74.FillColor = System.Drawing.Color.White;
+            stateProperties74.ForeColor = System.Drawing.Color.Empty;
+            stateProperties74.PlaceholderForeColor = System.Drawing.Color.Silver;
+            this.searchPing.OnDisabledState = stateProperties74;
+            stateProperties75.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
+            stateProperties75.FillColor = System.Drawing.Color.Empty;
+            stateProperties75.ForeColor = System.Drawing.Color.Empty;
+            stateProperties75.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.searchPing.OnHoverState = stateProperties75;
+            stateProperties76.BorderColor = System.Drawing.Color.Silver;
+            stateProperties76.FillColor = System.Drawing.Color.White;
+            stateProperties76.ForeColor = System.Drawing.Color.Empty;
+            stateProperties76.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.searchPing.OnIdleState = stateProperties76;
             this.searchPing.PasswordChar = '\0';
             this.searchPing.PlaceholderForeColor = System.Drawing.Color.Silver;
             this.searchPing.PlaceholderText = "TÌm kiếm";
@@ -320,26 +320,26 @@
             this.txtSend.Modified = false;
             this.txtSend.Multiline = false;
             this.txtSend.Name = "txtSend";
-            stateProperties5.BorderColor = System.Drawing.Color.DodgerBlue;
-            stateProperties5.FillColor = System.Drawing.Color.Empty;
-            stateProperties5.ForeColor = System.Drawing.Color.Empty;
-            stateProperties5.PlaceholderForeColor = System.Drawing.Color.Empty;
-            this.txtSend.OnActiveState = stateProperties5;
-            stateProperties6.BorderColor = System.Drawing.Color.Empty;
-            stateProperties6.FillColor = System.Drawing.Color.White;
-            stateProperties6.ForeColor = System.Drawing.Color.Empty;
-            stateProperties6.PlaceholderForeColor = System.Drawing.Color.Silver;
-            this.txtSend.OnDisabledState = stateProperties6;
-            stateProperties7.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
-            stateProperties7.FillColor = System.Drawing.Color.Empty;
-            stateProperties7.ForeColor = System.Drawing.Color.Empty;
-            stateProperties7.PlaceholderForeColor = System.Drawing.Color.Empty;
-            this.txtSend.OnHoverState = stateProperties7;
-            stateProperties8.BorderColor = System.Drawing.Color.Silver;
-            stateProperties8.FillColor = System.Drawing.Color.Black;
-            stateProperties8.ForeColor = System.Drawing.Color.White;
-            stateProperties8.PlaceholderForeColor = System.Drawing.Color.Empty;
-            this.txtSend.OnIdleState = stateProperties8;
+            stateProperties77.BorderColor = System.Drawing.Color.DodgerBlue;
+            stateProperties77.FillColor = System.Drawing.Color.Empty;
+            stateProperties77.ForeColor = System.Drawing.Color.Empty;
+            stateProperties77.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.txtSend.OnActiveState = stateProperties77;
+            stateProperties78.BorderColor = System.Drawing.Color.Empty;
+            stateProperties78.FillColor = System.Drawing.Color.White;
+            stateProperties78.ForeColor = System.Drawing.Color.Empty;
+            stateProperties78.PlaceholderForeColor = System.Drawing.Color.Silver;
+            this.txtSend.OnDisabledState = stateProperties78;
+            stateProperties79.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
+            stateProperties79.FillColor = System.Drawing.Color.Empty;
+            stateProperties79.ForeColor = System.Drawing.Color.Empty;
+            stateProperties79.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.txtSend.OnHoverState = stateProperties79;
+            stateProperties80.BorderColor = System.Drawing.Color.Silver;
+            stateProperties80.FillColor = System.Drawing.Color.Black;
+            stateProperties80.ForeColor = System.Drawing.Color.White;
+            stateProperties80.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.txtSend.OnIdleState = stateProperties80;
             this.txtSend.PasswordChar = '\0';
             this.txtSend.PlaceholderForeColor = System.Drawing.Color.Silver;
             this.txtSend.PlaceholderText = "Nhập vô đây :3";
@@ -486,16 +486,16 @@
             this.formname.ForeColor = System.Drawing.Color.White;
             this.formname.Location = new System.Drawing.Point(6, 2);
             this.formname.Name = "formname";
-            this.formname.Size = new System.Drawing.Size(100, 13);
+            this.formname.Size = new System.Drawing.Size(70, 13);
             this.formname.TabIndex = 0;
-            this.formname.Text = "MobaZ (Open beta)";
+            this.formname.Text = "MobaZ Client";
             // 
             // ver
             // 
             this.ver.AutoSize = true;
             this.ver.BackColor = System.Drawing.Color.Transparent;
             this.ver.ForeColor = System.Drawing.Color.Lime;
-            this.ver.Location = new System.Drawing.Point(110, 3);
+            this.ver.Location = new System.Drawing.Point(84, 3);
             this.ver.Name = "ver";
             this.ver.Size = new System.Drawing.Size(0, 13);
             this.ver.TabIndex = 0;
@@ -537,6 +537,7 @@
             this.roomP.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("roomP.BackgroundImage")));
             this.roomP.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.roomP.Controls.Add(this.mapList);
+            this.roomP.Controls.Add(this.serverList);
             this.roomP.Controls.Add(this.label5);
             this.roomP.Controls.Add(this.label1);
             this.roomP.Controls.Add(this.btnClr);
@@ -550,38 +551,6 @@
             this.roomP.Name = "roomP";
             this.roomP.Size = new System.Drawing.Size(240, 366);
             this.roomP.TabIndex = 1;
-            // 
-            // mapList
-            // 
-            this.mapList.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.mapList.BackColor = System.Drawing.Color.Transparent;
-            this.mapList.BorderRadius = 3;
-            this.mapList.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mapList.ForeColor = System.Drawing.Color.White;
-            this.mapList.Items = new string[] {
-        "Dota v6.83d MobaZ v1.0",
-        "Dota v6.83d",
-        "Dota v6.85k Allstar RGC",
-        "DotA v6.85i LoD",
-        "DotA v6.74c LoD v5e",
-        "DotA Imba Legend v2.6 EN",
-        "DotA Imba Legend 2018 v.4 EN",
-        "Legend Of The Dragon v99.9",
-        "Map Tong Hop V 49.0",
-        "Kiem Thien - Cai The v8.0",
-        "Legion td mega 4.1 x20",
-        "Pokemon Defense FINAL",
-        "Warlock1.02",
-        "Green Circle TD v9.9",
-        "Divide and Fight SV 1.20Q"};
-            this.mapList.Location = new System.Drawing.Point(13, 233);
-            this.mapList.Name = "mapList";
-            this.mapList.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-            this.mapList.onHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
-            this.mapList.selectedIndex = 0;
-            this.mapList.Size = new System.Drawing.Size(210, 20);
-            this.mapList.TabIndex = 28;
-            this.mapList.Visible = false;
             // 
             // label5
             // 
@@ -638,9 +607,9 @@
             this.btnCCHost.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnCCHost.Location = new System.Drawing.Point(130, 263);
             this.btnCCHost.Name = "btnCCHost";
-            this.btnCCHost.Size = new System.Drawing.Size(72, 33);
+            this.btnCCHost.Size = new System.Drawing.Size(93, 33);
             this.btnCCHost.TabIndex = 4;
-            this.btnCCHost.Text = "Hủy";
+            this.btnCCHost.Text = "Lobbies";
             this.btnCCHost.UseVisualStyleBackColor = true;
             this.btnCCHost.Visible = false;
             this.btnCCHost.Click += new System.EventHandler(this.btnCCHost_Click);
@@ -648,9 +617,9 @@
             // btnHost
             // 
             this.btnHost.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnHost.Location = new System.Drawing.Point(34, 263);
+            this.btnHost.Location = new System.Drawing.Point(13, 263);
             this.btnHost.Name = "btnHost";
-            this.btnHost.Size = new System.Drawing.Size(72, 33);
+            this.btnHost.Size = new System.Drawing.Size(93, 33);
             this.btnHost.TabIndex = 3;
             this.btnHost.Text = "Tạo Host";
             this.btnHost.UseVisualStyleBackColor = true;
@@ -759,26 +728,26 @@
             this.pathwar3.Modified = false;
             this.pathwar3.Multiline = false;
             this.pathwar3.Name = "pathwar3";
-            stateProperties9.BorderColor = System.Drawing.Color.DodgerBlue;
-            stateProperties9.FillColor = System.Drawing.Color.Empty;
-            stateProperties9.ForeColor = System.Drawing.Color.Empty;
-            stateProperties9.PlaceholderForeColor = System.Drawing.Color.Empty;
-            this.pathwar3.OnActiveState = stateProperties9;
-            stateProperties10.BorderColor = System.Drawing.Color.Empty;
-            stateProperties10.FillColor = System.Drawing.Color.White;
-            stateProperties10.ForeColor = System.Drawing.Color.Empty;
-            stateProperties10.PlaceholderForeColor = System.Drawing.Color.Silver;
-            this.pathwar3.OnDisabledState = stateProperties10;
-            stateProperties11.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
-            stateProperties11.FillColor = System.Drawing.Color.Empty;
-            stateProperties11.ForeColor = System.Drawing.Color.Empty;
-            stateProperties11.PlaceholderForeColor = System.Drawing.Color.Empty;
-            this.pathwar3.OnHoverState = stateProperties11;
-            stateProperties12.BorderColor = System.Drawing.Color.Silver;
-            stateProperties12.FillColor = System.Drawing.Color.White;
-            stateProperties12.ForeColor = System.Drawing.Color.Empty;
-            stateProperties12.PlaceholderForeColor = System.Drawing.Color.Empty;
-            this.pathwar3.OnIdleState = stateProperties12;
+            stateProperties81.BorderColor = System.Drawing.Color.DodgerBlue;
+            stateProperties81.FillColor = System.Drawing.Color.Empty;
+            stateProperties81.ForeColor = System.Drawing.Color.Empty;
+            stateProperties81.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.pathwar3.OnActiveState = stateProperties81;
+            stateProperties82.BorderColor = System.Drawing.Color.Empty;
+            stateProperties82.FillColor = System.Drawing.Color.White;
+            stateProperties82.ForeColor = System.Drawing.Color.Empty;
+            stateProperties82.PlaceholderForeColor = System.Drawing.Color.Silver;
+            this.pathwar3.OnDisabledState = stateProperties82;
+            stateProperties83.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
+            stateProperties83.FillColor = System.Drawing.Color.Empty;
+            stateProperties83.ForeColor = System.Drawing.Color.Empty;
+            stateProperties83.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.pathwar3.OnHoverState = stateProperties83;
+            stateProperties84.BorderColor = System.Drawing.Color.Silver;
+            stateProperties84.FillColor = System.Drawing.Color.White;
+            stateProperties84.ForeColor = System.Drawing.Color.Empty;
+            stateProperties84.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.pathwar3.OnIdleState = stateProperties84;
             this.pathwar3.PasswordChar = '\0';
             this.pathwar3.PlaceholderForeColor = System.Drawing.Color.Silver;
             this.pathwar3.PlaceholderText = "Đường dẫn war3.exe";
@@ -870,9 +839,9 @@
             this.mapName.ForeColor = System.Drawing.Color.Red;
             this.mapName.Location = new System.Drawing.Point(32, 100);
             this.mapName.Name = "mapName";
-            this.mapName.Size = new System.Drawing.Size(144, 13);
+            this.mapName.Size = new System.Drawing.Size(93, 13);
             this.mapName.TabIndex = 28;
-            this.mapName.Text = "DotA-6.83d-MobaZ-v1.0.w3x";
+            this.mapName.Text = "Download All Map";
             this.mapName.Click += new System.EventHandler(this.MapName_Click);
             // 
             // sttSV
@@ -962,26 +931,51 @@
             // serverList
             // 
             this.serverList.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.serverList.BackColor = System.Drawing.Color.Transparent;
-            this.serverList.BorderRadius = 3;
-            this.serverList.ForeColor = System.Drawing.Color.White;
-            this.serverList.Items = new string[] {
-        "MobazBot1",
-        "MobazBot2",
-        "MobazBot3",
-        "MobazBot4",
-        "MobazBot5",
-        "MobazBot6",
-        "MobazBot7",
-        "MobazBot8"};
-            this.serverList.Location = new System.Drawing.Point(28, 399);
+            this.serverList.BackColor = System.Drawing.Color.SeaGreen;
+            this.serverList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.serverList.FormattingEnabled = true;
+            this.serverList.Items.AddRange(new object[] {
+            "MobazBot1",
+            "MobazBot2",
+            "MobazBot3",
+            "MobazBot4",
+            "MobazBot5",
+            "MobazBot6",
+            "MobazBot7",
+            "MobazBot8"});
+            this.serverList.Location = new System.Drawing.Point(18, 191);
             this.serverList.Name = "serverList";
-            this.serverList.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-            this.serverList.onHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
-            this.serverList.selectedIndex = 0;
-            this.serverList.Size = new System.Drawing.Size(210, 20);
-            this.serverList.TabIndex = 3;
+            this.serverList.Size = new System.Drawing.Size(202, 21);
+            this.serverList.TabIndex = 7;
             this.serverList.Visible = false;
+            // 
+            // mapList
+            // 
+            this.mapList.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.mapList.BackColor = System.Drawing.Color.SeaGreen;
+            this.mapList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.mapList.FormattingEnabled = true;
+            this.mapList.Items.AddRange(new object[] {
+            "Dota v6.83d MobaZ v1.0",
+            "Dota v6.83d",
+            "Dota v6.85k Allstar RGC",
+            "DotA v6.85i LoD",
+            "DotA v6.74c LoD v5e",
+            "DotA Imba Legend v2.6 EN",
+            "DotA Imba Legend 2018 v.4 EN",
+            "Legend Of The Dragon v99.9",
+            "Map Tong Hop V 49.0",
+            "Kiem Thien - Cai The v8.0",
+            "Legion td mega 4.1 x20",
+            "Pokemon Defense FINAL",
+            "Warlock1.02",
+            "Green Circle TD v9.9",
+            "Divide and Fight SV 1.20Q"});
+            this.mapList.Location = new System.Drawing.Point(18, 234);
+            this.mapList.Name = "mapList";
+            this.mapList.Size = new System.Drawing.Size(202, 21);
+            this.mapList.TabIndex = 8;
+            this.mapList.Visible = false;
             // 
             // main
             // 
@@ -990,7 +984,6 @@
             this.BackColor = System.Drawing.Color.Black;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1084, 591);
-            this.Controls.Add(this.serverList);
             this.Controls.Add(this.bgrroom);
             this.Controls.Add(this.ver);
             this.Controls.Add(this.clBt);
@@ -1013,7 +1006,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "MobaZ (Open beta)";
+            this.Text = "MobaZ Client";
             this.Load += new System.EventHandler(this.Main_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -1081,12 +1074,12 @@
         private System.Windows.Forms.ListBox listRooms;
         private System.Windows.Forms.CheckBox window;
         private System.Windows.Forms.Button btnClr;
-        private Bunifu.Framework.UI.BunifuDropdown serverList;
-        private Bunifu.Framework.UI.BunifuDropdown mapList;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnCCHost;
         private System.Windows.Forms.Button btnHost;
+        private System.Windows.Forms.ComboBox serverList;
+        private System.Windows.Forms.ComboBox mapList;
     }
 }
