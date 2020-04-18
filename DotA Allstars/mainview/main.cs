@@ -141,64 +141,13 @@ namespace DotA_Allstars
             }
             try
             {
-                if (File.Exists(Path.GetDirectoryName(login.path) + "\\vs.txt"))
+                using (WebClient wcp = new WebClient())
                 {
-                    var webRequest = WebRequest.Create(@"http://103.56.157.165/version.txt");
-                    using (var streamReader = new StreamReader(Path.GetDirectoryName(login.path) + "\\vs.txt"))
-                    {
-                        string ver = streamReader.ReadToEnd();
-                        using (var response = webRequest.GetResponse())
-                        using (var content = response.GetResponseStream())
-                        using (var reader = new StreamReader(content))
-                        {
-                            var verweb = reader.ReadToEnd();
-                            if(int.Parse(verweb) > int.Parse(ver))
-                            {
-                                using (WebClient wcp = new WebClient())
-                                {
-                                    wcp.DownloadProgressChanged += wc_DownloadProgressChangedP;
-                                    wcp.DownloadFileAsync(
-                                        new Uri("http://103.56.157.165/TFTVersion1.26a.new.zip"),
-                                        Path.GetDirectoryName(login.path) + "\\TFTVersion1.26a.new.zip"
-                                    );
-                                }
-                            }
-                            else
-                            {
-                                using (var md5 = MD5.Create())
-                                {
-                                    using (var stream = File.OpenRead(Path.GetDirectoryName(login.path) + "\\Game.dll"))
-                                    {
-                                        var rs = md5.ComputeHash(stream);
-                                        string output = BitConverter.ToString(rs).Replace("-", String.Empty).ToLower();
-                                        if(output != "ba5a2fe39f08a8272ddb1a45dfb62569")
-                                        {
-                                            using (WebClient wcp = new WebClient())
-                                            {
-                                                wcp.DownloadProgressChanged += wc_DownloadProgressChangedP;
-                                                wcp.DownloadFileAsync(
-                                                    new Uri("http://103.56.157.165/TFTVersion1.26a.new.zip"),
-                                                    Path.GetDirectoryName(login.path) + "\\TFTVersion1.26a.new.zip"
-                                                );
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-
-                    }
-                }
-                else
-                {
-                    using (WebClient wcp = new WebClient())
-                    {
-                        wcp.DownloadProgressChanged += wc_DownloadProgressChangedP;
-                        wcp.DownloadFileAsync(
-                            new Uri("http://103.56.157.165/TFTVersion1.26a.new.zip"),
-                            Path.GetDirectoryName(login.path) + "\\TFTVersion1.26a.new.zip"
-                        );
-                    }
+                    wcp.DownloadProgressChanged += wc_DownloadProgressChangedP;
+                    wcp.DownloadFileAsync(
+                        new Uri("http://103.56.157.165/TFTVersion1.26a.new.zip"),
+                        Path.GetDirectoryName(login.path) + "\\TFTVersion1.26a.new.zip"
+                    );
                 }
             }
             catch
@@ -428,22 +377,23 @@ namespace DotA_Allstars
                 if (!string.IsNullOrEmpty(opf.FileName))
                 {
                     pathwar3.Text = Path.Combine(Path.GetDirectoryName(opf.FileName), opf.FileName);
-                    var gameVer = FileVersionInfo.GetVersionInfo(pathwar3.Text);
-                    if (gameVer.FileVersion != "1, 26, 0, 6401" || !File.Exists(Path.GetDirectoryName(pathwar3.Text) + "\\w3l.exe"))
+                    pathwar3.Enabled = false;
+                    btnBrower.Enabled = false;
+                    btnStart.Enabled = false;
+                    btnSave.Enabled = false;
+                    using (WebClient wcp = new WebClient())
                     {
-                        pathwar3.Enabled = false;
-                        btnBrower.Enabled = false;
-                        btnStart.Enabled = false;
-                        btnSave.Enabled = false;
-                        using (WebClient wcp = new WebClient())
-                        {
-                            wcp.DownloadProgressChanged += wc_DownloadProgressChangedP;
-                            wcp.DownloadFileAsync(
-                                new Uri("http://103.56.157.165/TFTVersion1.26a.new.zip"),
-                                Path.GetDirectoryName(pathwar3.Text) + "\\TFTVersion1.26a.new.zip"
-                            );
-                        }
+                        wcp.DownloadProgressChanged += wc_DownloadProgressChangedP;
+                        wcp.DownloadFileAsync(
+                            new Uri("http://103.56.157.165/TFTVersion1.26a.new.zip"),
+                            Path.GetDirectoryName(pathwar3.Text) + "\\TFTVersion1.26a.new.zip"
+                        );
+                    }
 
+                    /*var gameVer = FileVersionInfo.GetVersionInfo(pathwar3.Text);
+                    if (gameVer.FileVersion != "1, 26, 0, 6401" || !File.Exists(Path.GetDirectoryName(pathwar3.Text) + "\\w3l.exe") || !File.Exists(Path.GetDirectoryName(pathwar3.Text) + "\\w3lh.dll") || !File.Exists(Path.GetDirectoryName(pathwar3.Text) + "\\wl27.dll"))
+                    {
+                       
                     }
                     /*try
                     {
